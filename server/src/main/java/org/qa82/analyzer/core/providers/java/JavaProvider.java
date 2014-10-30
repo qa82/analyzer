@@ -10,16 +10,18 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer.providers.java;
+package org.qa82.analyzer.core.providers.java;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.qa82.analyzer.Analyzer;
-import org.qa82.analyzer.Element;
-import org.qa82.analyzer.InformationProvider;
-import org.qa82.analyzer.annotations.Parameter;
-import org.qa82.analyzer.annotations.ProvidedFunction;
+import org.qa82.analyzer.core.annotations.Parameter;
+import org.qa82.analyzer.core.annotations.ProvidedFunction;
+import org.qa82.analyzer.core.impl.Analyzer;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.InformationNeed;
+import org.qa82.analyzer.core.impl.InformationProvider;
+import org.qa82.analyzer.core.impl.Parameters;
 
 public class JavaProvider extends InformationProvider {
 	
@@ -30,7 +32,7 @@ public class JavaProvider extends InformationProvider {
 	@ProvidedFunction
 	public @Parameter(uri="REST Services") List<Element> getAllRestServices() {
 		System.out.println(analyzer.getProject().getRepository());
-		List result = new ArrayList<Element>();
+		List<Element> result = new ArrayList<Element>();
 		
 		for (int i = 0; i < 10; i++) {
 			Element e = new Element();
@@ -49,6 +51,18 @@ public class JavaProvider extends InformationProvider {
 	
 	@ProvidedFunction
 	public @Parameter(uri="serviceInterface") Element getServiceInterfaceOfService(@Parameter(uri="restService") Element restService) {
+		return null;
+	}
+
+	@Override
+	public Boolean supports(InformationNeed informationNeed, Parameters parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object resolve(InformationNeed informationNeed, Parameters parameters) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

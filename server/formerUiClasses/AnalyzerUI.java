@@ -17,8 +17,9 @@ import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 
-import org.qa82.analyzer.Analyzer;
-import org.qa82.analyzer.Element;
+import org.qa82.analyzer.core.impl.Analyzer;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.Project;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;

@@ -10,18 +10,16 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer.ui;
+package org.qa82.analyzer.core.impl;
 
-public class Project {
-	private String repository;
-
-	public String getRepository() {
-		return repository;
-	}
-
-	public void setRepository(String repository) {
-		this.repository = repository;
+public abstract class InformationProvider {
+	protected Analyzer analyzer;
+	
+	public InformationProvider(Analyzer analyzer) {
+		this.analyzer = analyzer;
 	}
 	
+	public abstract Boolean supports(InformationNeed informationNeed, Parameters parameters);
 	
+	public abstract Object resolve(InformationNeed informationNeed, Parameters parameters);
 }

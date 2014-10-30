@@ -10,15 +10,18 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer.annotations;
+package org.qa82.analyzer.core.impl;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+public class Project {
+	private String repository;
 
-@Target(ElementType.TYPE_USE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Parameter {
-	String uri();
+	public String getRepository() {
+		return repository;
+	}
+
+	public void setRepository(String repository) {
+		this.repository = repository;
+	}
+	
+	
 }

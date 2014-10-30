@@ -10,7 +10,7 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer;
+package org.qa82.analyzer.core.impl;
 
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.InvocationTargetException;
@@ -19,16 +19,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-import org.qa82.analyzer.annotations.Parameter;
-import org.qa82.analyzer.annotations.ProvidedFunction;
-import org.qa82.analyzer.providers.java.JavaProvider;
-import org.qa82.analyzer.providers.java.RefinementProvider;
-import org.qa82.analyzer.ui.Project;
+import org.qa82.analyzer.core.annotations.Parameter;
+import org.qa82.analyzer.core.annotations.ProvidedFunction;
+import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
+import org.qa82.analyzer.core.providers.java.JavaProvider;
+import org.qa82.analyzer.core.providers.java.RefinementProvider;
 
 
 public class Analyzer {
-	private List<InformationProvider> providers; // Prioritized List
+	 // Prioritized List
+	private List<InformationProvider> providers = new ArrayList<InformationProvider>();
 	private Project project;
 	
 	public Analyzer(Project project) {
@@ -272,6 +274,18 @@ public class Analyzer {
 		}
 		
 		return result;
+	}
+
+	public Optional<ResolvedInformation> resolve(InformationNeed informationNeed, Parameters parameters) throws InformationNeedNotResolvableException {
+		return null;
+	}
+	
+	public void setProviders(List<InformationProvider> providers) {
+		this.providers = providers;
+	}
+
+	public void addInformationProvider(InformationProvider informationProvider) {
+		this.providers.add(informationProvider);
 	}
 	
 }

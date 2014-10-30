@@ -10,16 +10,18 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer.providers.java;
+package org.qa82.analyzer.core.providers.java;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.qa82.analyzer.Analyzer;
-import org.qa82.analyzer.Element;
-import org.qa82.analyzer.InformationProvider;
-import org.qa82.analyzer.annotations.Parameter;
-import org.qa82.analyzer.annotations.ProvidedFunction;
+import org.qa82.analyzer.core.annotations.Parameter;
+import org.qa82.analyzer.core.annotations.ProvidedFunction;
+import org.qa82.analyzer.core.impl.Analyzer;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.InformationNeed;
+import org.qa82.analyzer.core.impl.InformationProvider;
+import org.qa82.analyzer.core.impl.Parameters;
 
 public class RefinementProvider extends InformationProvider {
 	
@@ -29,12 +31,12 @@ public class RefinementProvider extends InformationProvider {
 	
 	@ProvidedFunction
 	public @Parameter(uri="test2") Object doSomething2(@Parameter(uri="") Object a) {
-		return "Läuft2";
+		return "Lï¿½uft2";
 	}
 	
 	@ProvidedFunction
 	public @Parameter(uri="test") Object doSomething(@Parameter(uri="") Object a) {
-		return "Läuft";
+		return "Lï¿½uft";
 	}
 	
 	@ProvidedFunction
@@ -59,5 +61,18 @@ public class RefinementProvider extends InformationProvider {
 		}
 		
 		return operations;
+	}
+
+	@Override
+	public Boolean supports(InformationNeed informationNeed,
+			Parameters parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object resolve(InformationNeed informationNeed, Parameters parameters) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

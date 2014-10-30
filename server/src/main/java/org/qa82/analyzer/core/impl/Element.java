@@ -10,7 +10,7 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer;
+package org.qa82.analyzer.core.impl;
 
 public class Element {
 	public String uri;

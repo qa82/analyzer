@@ -9,13 +9,14 @@
 * Michael Gebhart - initial idea and concept
 * 
 *******************************************************************************/
+package org.qa82.analyzer.core.impl;
 
-package org.qa82.analyzer;
-
-public abstract class InformationProvider {
-	protected Analyzer analyzer;
-	
-	public InformationProvider(Analyzer analyzer) {
-		this.analyzer = analyzer;
-	}
+/**
+ * Marker interface for all types of parameters passed to the analyzer and information provider. Concrete
+ * implementations may be sorted parameters, named parameters etc.
+ *  
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ *
+ */
+public interface Parameters {
 }
