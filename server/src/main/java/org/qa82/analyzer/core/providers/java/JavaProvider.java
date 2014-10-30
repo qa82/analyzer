@@ -15,13 +15,13 @@ package org.qa82.analyzer.core.providers.java;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.impl.Analyzer;
 import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.impl.InformationNeed;
 import org.qa82.analyzer.core.impl.InformationProvider;
-import org.qa82.analyzer.core.impl.Parameters;
 
 public class JavaProvider extends InformationProvider {
 	

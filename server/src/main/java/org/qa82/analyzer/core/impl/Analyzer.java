@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;

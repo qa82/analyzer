@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.impl.InformationNeed;
-import org.qa82.analyzer.core.impl.Parameters;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JavaProviderTest {

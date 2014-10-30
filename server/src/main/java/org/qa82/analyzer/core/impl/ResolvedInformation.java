@@ -4,13 +4,23 @@ import java.util.Optional;
 
 public class ResolvedInformation {
 
-	/**
-	 * The information resolved by an analyzer. The resolved informationen corresponds to an information need.
-	 */
+	/** The information resolved by an analyzer. The resolved informationen corresponds to an information need. */
 	private Object information;
+	
+	/** The type of this information. */
+	private String uri = "";
 	
 	public ResolvedInformation(Object information) {
 		this.information = information;
+	}
+	
+	public ResolvedInformation(Object information, String uri) {
+		this.information = information;
+		this.uri = uri;
+	}
+	
+	public String getUri() {
+		return uri;
 	}
 	
 	public Object getInformation() {
