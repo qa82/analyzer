@@ -4,8 +4,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,8 +57,8 @@ public class AnalyzerTest {
 		when(informationProvider.supports(informationNeed, parameters)).thenReturn(true);
 		when(informationProvider.resolve(informationNeed, parameters)).thenReturn(resolvedInformation);
 		//then
-		Optional<ResolvedInformation> resolvedInformation = analyzer.resolve(informationNeed, parameters);
-		assertTrue("The analyzer should offer the information of the information provider.", resolvedInformation.isPresent());
+		ResolvedInformation resolvedInformation = analyzer.resolve(informationNeed, parameters);
+		assertTrue("The analyzer should offer the information of the information provider.", resolvedInformation.isInformationPresent());
 	}
 
 	@Test
@@ -70,8 +68,8 @@ public class AnalyzerTest {
 		//when
 		when(informationProvider.supports(unsupportedNeed, parameters)).thenReturn(false);
 		//then
-		Optional<ResolvedInformation> resolvedInformation = analyzer.resolve(unsupportedNeed, parameters);
-		assertFalse("The analyzer should not find any information.", resolvedInformation.isPresent());
+		ResolvedInformation resolvedInformation = analyzer.resolve(unsupportedNeed, parameters);
+		assertFalse("The analyzer should not find any information.", resolvedInformation.isInformationPresent());
 	}
 	
 

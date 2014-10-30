@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
@@ -276,7 +275,7 @@ public class Analyzer {
 		return result;
 	}
 
-	public Optional<ResolvedInformation> resolve(InformationNeed informationNeed, Parameters parameters) throws InformationNeedNotResolvableException {
+	public ResolvedInformation resolve(InformationNeed informationNeed, Parameters parameters) throws InformationNeedNotResolvableException {
 		return null;
 	}
 	

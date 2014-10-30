@@ -17,6 +17,10 @@ public class ResolvedInformation {
 		return information;
 	}
 	
+	public Boolean isInformationPresent() {
+		return information != null;
+	}
+	
 	public Optional<Element> getAsElement() {
 		return Optional.ofNullable((information != null && information instanceof Element) ? (Element) information : null);   
 	}
