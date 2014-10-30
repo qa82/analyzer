@@ -9,7 +9,7 @@
 * Michael Gebhart - initial idea and concept
 * 
 *******************************************************************************/
-package org.qa82.analyzer.core.impl;
+package org.qa82.analyzer.core;
 
 /**
  * Marker interface for all types of parameters passed to the analyzer and information provider. Concrete
