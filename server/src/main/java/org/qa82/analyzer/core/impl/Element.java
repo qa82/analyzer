@@ -12,22 +12,52 @@
 
 package org.qa82.analyzer.core.impl;
 
-public class Element {
-	public String uri;
-	public String name;
-	
-	public String getUri() {
-		return uri;
+/**
+ * An element in structured information, e.g., an UML class or a WSDL service. Use as parameter for a new analyzer request to get further
+ * information on the element.
+ * 
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
+public class Element extends AbstractInformation {
+
+	/**
+	 * An element should support to be used as parameter for further requests on the element. Therefore, the id should be unique and refer
+	 * to the concrete element.
+	 */
+	private String id;
+
+	/**
+	 * A new element with default type "element".
+	 * 
+	 * @param id {@link #id}
+	 */
+	public Element(String id) {
+		super(/* type is */"element");
+		this.id = id;
 	}
-	public void setUri(String uri) {
-		this.uri = uri;
+
+	/**
+	 * A new element with id and type.
+	 * 
+	 * @param id {@link #id}
+	 * @param type {@link #type}
+	 */
+	public Element(String id, String type) {
+		super(/* type is */type);
+		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public String getId() {
+		return id;
 	}
-	
-	
+
+	@Override
+	public Object getValue() {
+		return getId();
+	}
+
 }

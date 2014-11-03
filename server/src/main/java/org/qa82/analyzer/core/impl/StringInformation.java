@@ -12,20 +12,27 @@
 
 package org.qa82.analyzer.core.impl;
 
-import java.util.ArrayList;
-
-import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.Parameters;
-
 /**
- * A list of parameters.
- * Uses the java.util ArrayList implementation.
- *  
+ * Information with type string.
+ * 
  * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
- *
  */
-public class SortedParameters extends ArrayList<Information> implements Parameters {
+public class StringInformation extends AbstractInformation {
 
-	private static final long serialVersionUID = -8065893726222789060L;
+	private String value;
+
+	public StringInformation(String value) {
+		super(/* type is */"string");
+		this.value = value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	@Override
+	public Object getValue() {
+		return value;
+	}
 
 }

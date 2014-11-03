@@ -12,20 +12,27 @@
 
 package org.qa82.analyzer.core.impl;
 
-import java.util.ArrayList;
-
-import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.Parameters;
-
 /**
- * A list of parameters.
- * Uses the java.util ArrayList implementation.
- *  
+ * Information with type boolean.
+ * 
  * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
- *
  */
-public class SortedParameters extends ArrayList<Information> implements Parameters {
+public class BooleanInformation extends AbstractInformation {
 
-	private static final long serialVersionUID = -8065893726222789060L;
+	private Boolean value;
+
+	public BooleanInformation(Boolean value) {
+		super(/* type is */"boolean");
+		this.value = value;
+	}
+	
+	public void setValue(Boolean value) {
+		this.value = value;
+	}
+
+	@Override
+	public Object getValue() {
+		return value;
+	}
 
 }

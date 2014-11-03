@@ -20,11 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
-import org.qa82.analyzer.core.providers.java.JavaProvider;
+import org.qa82.analyzer.core.providers.java.JavaJaxRsProvider;
 import org.qa82.analyzer.core.providers.java.RefinementProvider;
 
 
@@ -38,7 +39,7 @@ public class Analyzer {
 		this.project = project;		
 		
 		providers = new ArrayList<InformationProvider>();
-		providers.add(new JavaProvider(this));
+		providers.add(new JavaJaxRsProvider(this));
 		providers.add(new RefinementProvider(this));
 	}
 	
@@ -276,8 +277,14 @@ public class Analyzer {
 		return result;
 	}
 
-	public ResolvedInformation resolve(InformationNeed informationNeed, Parameters parameters) throws InformationNeedNotResolvableException {
-		return null;
+	public Information resolve(Information expectedInformation, Parameters parameters) throws InformationNeedNotResolvableException {
+		if (providers.stream().noneMatch((provider) -> provider.provides(expectedInformation, parameters))) {
+			throw new InformationNeedNotResolvableException("No provider supports the information need.");
+		}
+
+		InformationProvider providerSupportingInformationNeed = providers.stream()
+				.filter((provider) -> provider.provides(expectedInformation, parameters)).findFirst().get();
+		return providerSupportingInformationNeed.resolve(expectedInformation, parameters);
 	}
 	
 	public void setProviders(List<InformationProvider> providers) {

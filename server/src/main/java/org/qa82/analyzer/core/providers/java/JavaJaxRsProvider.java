@@ -20,12 +20,12 @@ import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.impl.Analyzer;
 import org.qa82.analyzer.core.impl.Element;
-import org.qa82.analyzer.core.impl.InformationNeed;
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.impl.InformationProvider;
 
-public class JavaProvider extends InformationProvider {
+public class JavaJaxRsProvider extends InformationProvider {
 	
-	public JavaProvider(Analyzer analyzer) {
+	public JavaJaxRsProvider(Analyzer analyzer) {
 		super(analyzer);
 	}
 
@@ -35,9 +35,7 @@ public class JavaProvider extends InformationProvider {
 		List<Element> result = new ArrayList<Element>();
 		
 		for (int i = 0; i < 10; i++) {
-			Element e = new Element();
-			e.setName("Test");
-			e.setUri("/service/rest");
+			Element e = new Element("Test", "/service/rest");
 			result.add(e);
 		}
 		
@@ -55,13 +53,13 @@ public class JavaProvider extends InformationProvider {
 	}
 
 	@Override
-	public Boolean supports(InformationNeed informationNeed, Parameters parameters) {
+	public Boolean provides(Information informationNeed, Parameters parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object resolve(InformationNeed informationNeed, Parameters parameters) {
+	public Information resolve(Information expectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}

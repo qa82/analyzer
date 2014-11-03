@@ -9,17 +9,18 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.qa82.analyzer.core.Parameters;
-import org.qa82.analyzer.core.impl.InformationNeed;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.Information;
 
 @RunWith(MockitoJUnitRunner.class)
-public class JavaProviderTest {
+public class JavaJaxRsProviderTest {
 	
-	private JavaProvider javaProvider;
+	private JavaJaxRsProvider javaProvider;
 	@Mock private Parameters parameters;
 
 	@Before
 	public void setUp() throws Exception {
-		this.javaProvider = new JavaProvider(null);
+		this.javaProvider = new JavaJaxRsProvider(null);
 	}
 
 	@After
@@ -29,9 +30,9 @@ public class JavaProviderTest {
 	@Test
 	public void testSupport() {
 		//given
-		InformationNeed informationNeed = new InformationNeed("http://cos.ontoware.org/cos#web-service");
+		Information informationNeed = new Element("http://cos.ontoware.org/cos#web-service");
 		//when
-		Boolean supportsWebServices = javaProvider.supports(informationNeed, parameters);
+		Boolean supportsWebServices = javaProvider.provides(informationNeed, parameters);
 		//then
 		assertTrue("The java jax-rs provider should support the analysis of Webservices.", supportsWebServices);
 	}

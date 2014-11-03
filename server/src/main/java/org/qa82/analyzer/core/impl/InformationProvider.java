@@ -12,6 +12,7 @@
 
 package org.qa82.analyzer.core.impl;
 
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 
 public abstract class InformationProvider {
@@ -21,7 +22,7 @@ public abstract class InformationProvider {
 		this.analyzer = analyzer;
 	}
 	
-	public abstract Boolean supports(InformationNeed informationNeed, Parameters parameters);
+	public abstract Boolean provides(Information expectedInformation, Parameters parameters);
 	
-	public abstract Object resolve(InformationNeed informationNeed, Parameters parameters);
+	public abstract Information resolve(Information expoectedInformation, Parameters parameters);
 }

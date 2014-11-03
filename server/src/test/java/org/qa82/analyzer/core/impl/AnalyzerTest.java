@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
 
@@ -20,7 +21,8 @@ public class AnalyzerTest {
 	@Mock private Project project;
 	@Mock private InformationProvider informationProvider;
 	@Mock private Parameters parameters;
-	@Mock private ResolvedInformation resolvedInformation;
+	@Mock
+	private Information resolvedInformation;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -35,7 +37,7 @@ public class AnalyzerTest {
 	@Test (expected=InformationNeedNotResolvableException.class)
 	public void testResolveWithNullValue() throws InformationNeedNotResolvableException {
 		//given
-		InformationNeed informationNeed = null;
+		Information informationNeed = null;
 		//when
 		analyzer.resolve(informationNeed, parameters);
 		//then expect InformationNeedNotResolvableException
@@ -44,7 +46,7 @@ public class AnalyzerTest {
 	@Test (expected=InformationNeedNotResolvableException.class)
 	public void testResolveWithUnsupportedInformationNeed() throws InformationNeedNotResolvableException {
 		//given
-		InformationNeed informationNeed = new InformationNeed("Unsupported with cryptic name");
+		Information informationNeed = new Element("Unsupported with cryptic name");
 		//when
 		analyzer.resolve(informationNeed, parameters);
 		//then expect InformationNeedNotResolvableException
@@ -53,23 +55,23 @@ public class AnalyzerTest {
 	@Test
 	public void testResolveSupportedNeed() throws InformationNeedNotResolvableException {
 		//given
-		InformationNeed informationNeed = new InformationNeed("http://cos.ontoware.org/cos#web-service");
+		Information informationNeed = new Element("http://cos.ontoware.org/cos#web-service");
 		//when
-		when(informationProvider.supports(informationNeed, parameters)).thenReturn(true);
+		when(informationProvider.provides(informationNeed, parameters)).thenReturn(true);
 		when(informationProvider.resolve(informationNeed, parameters)).thenReturn(resolvedInformation);
 		//then
-		ResolvedInformation resolvedInformation = analyzer.resolve(informationNeed, parameters);
+		Information resolvedInformation = analyzer.resolve(informationNeed, parameters);
 		assertTrue("The analyzer should offer the information of the information provider.", resolvedInformation.isInformationPresent());
 	}
 
 	@Test
 	public void testResolveUnsupportedNeed() throws InformationNeedNotResolvableException {
 		//given
-		InformationNeed unsupportedNeed = new InformationNeed("unsupported");
+		Information unsupportedNeed = new Element("unsupported");
 		//when
-		when(informationProvider.supports(unsupportedNeed, parameters)).thenReturn(false);
+		when(informationProvider.provides(unsupportedNeed, parameters)).thenReturn(false);
 		//then
-		ResolvedInformation resolvedInformation = analyzer.resolve(unsupportedNeed, parameters);
+		Information resolvedInformation = analyzer.resolve(unsupportedNeed, parameters);
 		assertFalse("The analyzer should not find any information.", resolvedInformation.isInformationPresent());
 	}
 	

@@ -20,7 +20,7 @@ import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.impl.Analyzer;
 import org.qa82.analyzer.core.impl.Element;
-import org.qa82.analyzer.core.impl.InformationNeed;
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.impl.InformationProvider;
 
 public class RefinementProvider extends InformationProvider {
@@ -64,14 +64,13 @@ public class RefinementProvider extends InformationProvider {
 	}
 
 	@Override
-	public Boolean supports(InformationNeed informationNeed,
-			Parameters parameters) {
+	public Boolean provides(org.qa82.analyzer.core.Information expectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object resolve(InformationNeed informationNeed, Parameters parameters) {
+	public Information resolve(Information expoectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}
