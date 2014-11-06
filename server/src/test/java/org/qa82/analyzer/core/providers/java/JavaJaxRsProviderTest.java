@@ -1,6 +1,6 @@
 package org.qa82.analyzer.core.providers.java;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.qa82.analyzer.core.Parameters;
+import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.impl.Element;
-import org.qa82.analyzer.core.Information;
 
 @RunWith(MockitoJUnitRunner.class)
 public class JavaJaxRsProviderTest {
@@ -30,9 +30,9 @@ public class JavaJaxRsProviderTest {
 	@Test
 	public void testSupport() {
 		//given
-		Information informationNeed = new Element("http://cos.ontoware.org/cos#web-service");
+        InformationType expectedInformation = new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service");
 		//when
-		Boolean supportsWebServices = javaProvider.provides(informationNeed, parameters);
+        Boolean supportsWebServices = javaProvider.provides(expectedInformation, parameters);
 		//then
 		assertTrue("The java jax-rs provider should support the analysis of Webservices.", supportsWebServices);
 	}

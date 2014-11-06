@@ -18,14 +18,16 @@ import java.util.List;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
-import org.qa82.analyzer.core.impl.Analyzer;
+import org.qa82.analyzer.core.bean.InformationNeed;
+import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.impl.SimpleAnalyzer;
 import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.impl.InformationProvider;
+import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 
-public class JavaJaxRsProvider extends InformationProvider {
+public class JavaJaxRsProvider extends AbstractInformationProvider {
 	
-	public JavaJaxRsProvider(Analyzer analyzer) {
+	public JavaJaxRsProvider(SimpleAnalyzer analyzer) {
 		super(analyzer);
 	}
 
@@ -52,14 +54,19 @@ public class JavaJaxRsProvider extends InformationProvider {
 		return null;
 	}
 
-	@Override
-	public Boolean provides(Information informationNeed, Parameters parameters) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Boolean provides(InformationType expectedInformation, Parameters parameters) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
+    @Override
+    public Information resolve(InformationType expoectedInformation, Parameters parameters) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 	@Override
-	public Information resolve(Information expectedInformation, Parameters parameters) {
+	public List<InformationNeed> getProvidedInformation() {
 		// TODO Auto-generated method stub
 		return null;
 	}

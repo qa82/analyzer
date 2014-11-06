@@ -15,62 +15,77 @@ package org.qa82.analyzer.core.providers.java;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
-import org.qa82.analyzer.core.impl.Analyzer;
+import org.qa82.analyzer.core.bean.InformationNeed;
+import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.InformationType.Multiplicity;
+import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
+import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 import org.qa82.analyzer.core.impl.Element;
-import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.impl.InformationProvider;
+import org.qa82.analyzer.core.impl.EmptyParameters;
+import org.qa82.analyzer.core.impl.SimpleAnalyzer;
+import org.qa82.analyzer.core.impl.SimpleInformation;
 
-public class RefinementProvider extends InformationProvider {
+public class RefinementProvider extends AbstractInformationProvider {
 	
-	public RefinementProvider(Analyzer analyzer) {
+	public RefinementProvider(SimpleAnalyzer analyzer) {
 		super(analyzer);
 	}
 	
 	@ProvidedFunction
 	public @Parameter(uri="test2") Object doSomething2(@Parameter(uri="") Object a) {
-		return "L�uft2";
+        return "L�uft2";
 	}
 	
 	@ProvidedFunction
 	public @Parameter(uri="test") Object doSomething(@Parameter(uri="") Object a) {
-		return "L�uft";
+        return "L�uft";
 	}
 	
 	@ProvidedFunction
-	public @Parameter(uri="operations") List<Element> getAllProvidedOperations() {
+    public @Parameter(uri = "operations") Information getAllProvidedOperations() throws InformationNeedNotResolvableException {
+		List<Element> services = getServicesFromAnalyzer();
 		
-		List<Element> services = analyzer.getList("services");
-		
-		System.out.println(analyzer.getProject().getRepository());
-		
-		if (services == null) return null;
-		
-		List<Element> operations = new ArrayList<Element>();
-		
-		for (Element service : services) {
-			Element i = analyzer.getElement("serviceInterface", "service", service);
+        List<Element> serviceOperations = new ArrayList<Element>();
+        services.forEach((service) -> serviceOperations.add(getOperationsForServiceFromAnalyzer(service)));
 			
-			if (i == null) continue;
-			
-			List<Element> currentOperations = analyzer.getList("providedOperations", "serviceInterface", i);
-			
-			if (currentOperations != null) operations.addAll(currentOperations);
+        return new SimpleInformation(serviceOperations);
+	}
+
+    private Element getOperationsForServiceFromAnalyzer(Element service) {
+        // TODO Auto-generated method stub
+        return new Element("");
+    }
+
+    private List<Element> getServicesFromAnalyzer() throws InformationNeedNotResolvableException {
+		List<Element> services = new ArrayList<Element>();
+		Information retrievedInformation = analyzer.resolve(new InformationType(Element.class, "service", Multiplicity.COLLECTION),
+				new EmptyParameters());
+		if (retrievedInformation.isInformationPresent()) {
+
+            // TODO: IMPLEMENT CONVERSION
 		}
-		
-		return operations;
+
+		return services;
 	}
 
 	@Override
-	public Boolean provides(org.qa82.analyzer.core.Information expectedInformation, Parameters parameters) {
+	public Boolean provides(InformationType expectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Information resolve(Information expoectedInformation, Parameters parameters) {
+	public Information resolve(InformationType expoectedInformation, Parameters parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<InformationNeed> getProvidedInformation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
