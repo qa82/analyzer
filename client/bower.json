@@ -1,0 +1,9 @@
+{
+  "name": "qa-analyzer-client-dependencies",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.2.0",
+    "bootstrap": "~3.3.0",
+    "font-awesome": "~4.2.0"
+  }
+}

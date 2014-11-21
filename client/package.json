@@ -1,0 +1,19 @@
+{
+  "name": "qa-analyzer-client",
+  "version": "0.0.1",
+  "description" : "Client for the QA Analyzer",
+  "author" :
+    "Pascal Giessler <pascal.giessler@student.kit.edu>",
+  "private" : true,
+  "contributors" :
+    "Michael Gebhart <michael.gebhart@qa82.de>, Roland Steinegger <steinegger@kit.edu>, Pascal Giessler <pascal.giessler@student.kit.edu",
+  "devDependencies" : {
+    "bower" : "^1.2.6",
+    "gulp" : "^3.8.10",
+    "gulp-sass" : "^1.1.0",
+    "browser-sync" : "^1.2.1"
+  },
+  "scripts" : {
+    "postinstall" : "./node_modules/bower/bin/bower install"
+  }
+}

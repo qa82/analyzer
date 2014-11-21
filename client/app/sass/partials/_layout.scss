@@ -1,0 +1,54 @@
+/* Common */
+a {
+  color: $qa82-dark-blue;
+}
+
+body {
+  color:$qa82-dark-grey;
+}
+
+
+/* Top Navigation Bar */
+
+nav.navbar {
+
+  min-height:65px !important;
+
+  .navbar-brand {
+    padding-top:5px;
+    height:60px;
+  }
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  ul li {
+
+    a.active {
+      background-color:$qa82-dark-blue;
+      color:#FFF;
+    }
+  }
+}
+
+/* Content Container */
+.page-header {
+  margin-top:15px;
+}
+
+/* Media Queries */
+@media(min-width:768px) {
+  .sidebar {
+    margin-top: 65px;
+  }
+
+  .navbar-top-links li a {
+    min-height: 64px;
+    padding:22px;
+  }
+}
+
+/* Bootstrap Mods */
+.btn-primary {
+  background-color:$qa82-dark-blue !important;
+}
