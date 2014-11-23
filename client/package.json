@@ -12,8 +12,5 @@
     "gulp" : "^3.8.10",
     "gulp-sass" : "^1.1.0",
     "browser-sync" : "^1.2.1"
-  },
-  "scripts" : {
-    "postinstall" : "./node_modules/bower/bin/bower install"
   }
 }
