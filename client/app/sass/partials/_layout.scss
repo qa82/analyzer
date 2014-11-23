@@ -7,11 +7,18 @@ body {
   color:$qa82-dark-grey;
 }
 
+h1, h2, h3 {
+  color: $qa82-light-blue;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-family: "Open Sans", "Arial", "Verdana";
+}
 
 /* Top Navigation Bar */
 
 nav.navbar {
 
+  font-family: "Open Sans", "Arial", "Verdana";
   min-height:65px !important;
 
   .navbar-brand {
@@ -25,7 +32,7 @@ nav.navbar {
   ul li {
 
     a.active {
-      background-color:$qa82-dark-blue;
+      background-color:$qa82-light-blue;
       color:#FFF;
     }
   }
@@ -50,5 +57,5 @@ nav.navbar {
 
 /* Bootstrap Mods */
 .btn-primary {
-  background-color:$qa82-dark-blue !important;
+  background-color:$qa82-light-blue !important;
 }

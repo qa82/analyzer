@@ -23,4 +23,4 @@ client/node_modules
 client/bower_components
 
 #Exclude css files
-client/app/css/
+client/app/css/screen.css
