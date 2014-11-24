@@ -35,4 +35,4 @@ gulp.task('watch', ['browser-sync'], function() {
     gulp.watch(config.app_folder + '/js/**/*.js',['bs-reload']);
 });
 
-gulp.task('default',['watch'],function(){});
+gulp.task('default',['sass','watch'],function(){});
