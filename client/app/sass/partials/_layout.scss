@@ -5,20 +5,21 @@ a {
 
 body {
   color:$qa82-dark-grey;
+  letter-spacing: 0;
 }
 
 h1, h2, h3 {
+  font-family: "Open Sans", "Arial", "Verdana", serif;
   color: $qa82-light-blue;
   text-transform: uppercase;
   font-weight: normal;
-  font-family: "Open Sans", "Arial", "Verdana";
 }
 
 /* Top Navigation Bar */
 
 nav.navbar {
 
-  font-family: "Open Sans", "Arial", "Verdana";
+  font-family: "Open Sans", "Arial", "Verdana", serif;
   min-height:65px !important;
 
   .navbar-brand {
@@ -56,6 +57,26 @@ nav.navbar {
 }
 
 /* Bootstrap Mods */
-.btn-primary {
-  background-color:$qa82-light-blue !important;
+
+.btn {
+  font-family: "Open Sans", "Arial", "Verdana", serif;
+  border: medium none;
+  font-size:15px;
+  padding: 5px 10px;
+  position: relative;
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.35s ease 0s;
+  box-shadow: none;
+
+  &.btn-primary {
+    background: none repeat scroll 0 0 $qa82-light-blue;
+    color: #fff6e5;
+    display: inline-block;
+
+    &:hover {
+      background: none repeat scroll 0 0 #3e454c;
+    }
+  }
 }
