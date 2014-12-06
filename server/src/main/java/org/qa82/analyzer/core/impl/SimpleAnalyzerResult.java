@@ -12,24 +12,25 @@
 
 package org.qa82.analyzer.core.impl;
 
+import org.qa82.analyzer.core.AnalyzerResult;
+import org.qa82.analyzer.core.Information;
 
-public class SimpleInformation extends AbstractInformation {
+/**
+ * A simple result of an analysis including only the resolved information.
+ *
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
+public class SimpleAnalyzerResult implements AnalyzerResult {
 
-    private Object informationObject;
+    private Information resolvedInformation;
 
-    public SimpleInformation(Object informationObject) {
-        super(informationObject.getClass().toString());
-        this.informationObject = informationObject;
+    public SimpleAnalyzerResult(Information resolvedInformation) {
+        this.resolvedInformation = resolvedInformation;
     }
 
     @Override
-    public Object getValue() {
-        return informationObject;
-    }
-
-    @Override
-    public Boolean isInformationPresent() {
-        return informationObject == null;
+    public Information getInformation() {
+        return resolvedInformation;
     }
 
 }

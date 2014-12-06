@@ -1,6 +1,18 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Michael Gebhart (michael.gebhart@qa82.org).
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Michael Gebhart - initial idea and concept
+ * 
+ *******************************************************************************/
+
 package org.qa82.analyzer.core;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
@@ -8,15 +20,17 @@ import org.qa82.analyzer.core.impl.Project;
 
 public interface Analyzer {
 
-	public abstract Information resolve(InformationType expectedInformation, Parameters parameters)
+    public AnalyzerResult resolve(InformationType expectedInformation, Parameters parameters)
 			throws InformationNeedNotResolvableException;
 
-	public abstract void setProject(Project project);
+    public void setProject(Project project);
+    
+    public Project getProject();
 
-	public abstract void setProviders(List<InformationProvider> providers);
+    public void setProviders(Collection<InformationProvider> providers);
 
-	public abstract void addInformationProvider(InformationProvider informationProvider);
+    public void addInformationProvider(InformationProvider informationProvider);
 
-	public abstract List<InformationProvider> getProviders();
+    public Collection<InformationProvider> getInformationProviders();
 
 }

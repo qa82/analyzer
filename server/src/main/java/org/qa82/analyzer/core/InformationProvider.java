@@ -12,7 +12,7 @@
 
 package org.qa82.analyzer.core;
 
-import java.util.List;
+import java.util.Set;
 
 import org.qa82.analyzer.core.bean.InformationNeed;
 import org.qa82.analyzer.core.bean.InformationType;
@@ -30,6 +30,6 @@ public interface InformationProvider {
 
 	public Information resolve(InformationType expoectedInformation, Parameters parameters);
 
-	public List<InformationNeed> getProvidedInformation();
+    public Set<InformationNeed> getProvidedInformation();
 
 }

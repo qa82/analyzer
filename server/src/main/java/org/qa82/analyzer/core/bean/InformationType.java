@@ -22,19 +22,19 @@ import org.qa82.analyzer.core.Information;
  */
 public class InformationType {
 
-	public enum Multiplicity {
-		SINGLE, COLLECTION, MAP
-	};
-
 	/** The java type of the information. */
 	private Class<? extends Information> classType;
 	/** The type described as string, may be connected to an ontology. */
 	private String type;
-	/** The multiplicity of the java type. */
-	private Multiplicity multiplicity = Multiplicity.SINGLE;
+	
+	/**
+	 * Empty constructor for serialization.
+	 */
+	public InformationType() {
+	}
 
 	/**
-	 * Define an information type with class and string. Multiplicity stays default single.
+	 * Define an information type with class and string.
 	 * 
 	 * @param classType Java type expected
 	 * @param type Type described as string, may be a ontology uri
@@ -42,19 +42,6 @@ public class InformationType {
 	public InformationType(Class<? extends Information> classType, String type) {
 		this.classType = classType;
 		this.type = type;
-	}
-
-	/**
-	 * Define an information type with class, string and multiplicity.
-	 * 
-	 * @param classType Java type expected
-	 * @param type Type described as string, may be a ontology uri
-	 * @param multiplicity How many element of the class
-	 */
-	public InformationType(Class<? extends Information> classType, String type, Multiplicity multiplicity) {
-		this.classType = classType;
-		this.type = type;
-		this.multiplicity = multiplicity;
 	}
 
 	public Class<? extends Information> getClassType() {
@@ -71,14 +58,6 @@ public class InformationType {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public Multiplicity getMultiplicity() {
-		return multiplicity;
-	}
-
-	public void setMultiplicity(Multiplicity multiplicity) {
-		this.multiplicity = multiplicity;
 	}
 
 }

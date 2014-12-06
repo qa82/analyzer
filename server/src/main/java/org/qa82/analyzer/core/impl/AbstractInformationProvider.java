@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
@@ -30,9 +31,9 @@ import org.qa82.analyzer.core.annotations.ProvidedFunction;
  * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
  */
 public abstract class AbstractInformationProvider implements InformationProvider {
-	protected SimpleAnalyzer analyzer;
+	protected Analyzer analyzer;
 	
-	public AbstractInformationProvider(SimpleAnalyzer analyzer) {
+	public AbstractInformationProvider(Analyzer analyzer) {
 		this.analyzer = analyzer;
 	}
 
@@ -58,7 +59,7 @@ public abstract class AbstractInformationProvider implements InformationProvider
 	public Object execute(String resultUri, Map<String, Object> parameters) {
 
 		// TODO: Merging
-		for (InformationProvider provider : analyzer.getProviders()) {
+		for (InformationProvider provider : analyzer.getInformationProviders()) {
 
 			for (Method method : getProvidedFunctions(provider)) {
 
@@ -222,7 +223,7 @@ public abstract class AbstractInformationProvider implements InformationProvider
 	public List<String> getResultUris(Class<?> resultType, List<String> inputUris) {
 		List<String> resultUris = new ArrayList<String>();
 
-		for (InformationProvider provider : analyzer.getProviders()) {
+		for (InformationProvider provider : analyzer.getInformationProviders()) {
 			for (Method method : getProvidedFunctions(provider)) {
 				AnnotatedType type = method.getAnnotatedReturnType();
 				Parameter[] parameterAnnotations = type.getAnnotationsByType(Parameter.class);

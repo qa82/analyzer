@@ -9,27 +9,20 @@
  * Michael Gebhart - initial idea and concept
  * 
  *******************************************************************************/
+package org.qa82.analyzer.core;
 
-package org.qa82.analyzer.core.impl;
+import java.util.Set;
 
+/**
+ * A repository of information providers.
+ * 
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
+public interface InformationProviderRepository {
 
-public class SimpleInformation extends AbstractInformation {
+	public abstract void setInformationProviders(
+			Set<InformationProvider> informationProviders);
 
-    private Object informationObject;
-
-    public SimpleInformation(Object informationObject) {
-        super(informationObject.getClass().toString());
-        this.informationObject = informationObject;
-    }
-
-    @Override
-    public Object getValue() {
-        return informationObject;
-    }
-
-    @Override
-    public Boolean isInformationPresent() {
-        return informationObject == null;
-    }
+	public abstract Set<InformationProvider> getInformationProviders();
 
 }

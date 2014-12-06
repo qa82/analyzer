@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.qa82.analyzer.core.Analyzer;
-import org.qa82.analyzer.core.Information;
+import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.bean.InformationType;
@@ -21,8 +21,7 @@ public class SimpleAnalyzerTest {
 
 	private Analyzer analyzer = null;
 	@Mock private Project project;
-    @Mock
-    private InformationProvider informationProvider;
+    @Mock private InformationProvider informationProvider;
 	@Mock private Parameters parameters;
 	
 	@Before
@@ -37,7 +36,7 @@ public class SimpleAnalyzerTest {
 	@Test (expected=InformationNeedNotResolvableException.class)
 	public void testResolveWithNullValue() throws InformationNeedNotResolvableException {
 		//given
-		InformationType expectedInformation = null;
+		InformationType expectedInformation = new InformationType(Element.class, "unsupported");
 		//when
 		analyzer.resolve(expectedInformation, parameters);
 		//then expect InformationNeedNotResolvableException
@@ -61,9 +60,9 @@ public class SimpleAnalyzerTest {
 		when(informationProvider.resolve(expectedInformation, parameters)).thenReturn(new Element(""));
         analyzer.addInformationProvider(informationProvider);
 		// when
-		Information resolvedInformation = analyzer.resolve(expectedInformation, parameters);
+        AnalyzerResult result = analyzer.resolve(expectedInformation, parameters);
 		// then
-		assertTrue("The analyzer should offer the information of the information provider.", resolvedInformation.isInformationPresent());
+        assertTrue("The analyzer should offer the information of the information provider.", result.getInformation().isInformationPresent());
 	}
 
     @Test(expected = InformationNeedNotResolvableException.class)

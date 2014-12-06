@@ -10,26 +10,16 @@
  * 
  *******************************************************************************/
 
-package org.qa82.analyzer.core.impl;
+package org.qa82.analyzer.core;
 
+/**
+ * Common interface for results of an analyzer. May be enhanced to offer additional information such as a trace of the analysis or its
+ * duration.
+ * 
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
+public interface AnalyzerResult {
 
-public class SimpleInformation extends AbstractInformation {
-
-    private Object informationObject;
-
-    public SimpleInformation(Object informationObject) {
-        super(informationObject.getClass().toString());
-        this.informationObject = informationObject;
-    }
-
-    @Override
-    public Object getValue() {
-        return informationObject;
-    }
-
-    @Override
-    public Boolean isInformationPresent() {
-        return informationObject == null;
-    }
+    public Information getInformation();
 
 }

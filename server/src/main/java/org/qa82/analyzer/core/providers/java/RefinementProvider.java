@@ -13,25 +13,28 @@
 package org.qa82.analyzer.core.providers.java;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.qa82.analyzer.core.Analyzer;
+import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.bean.InformationNeed;
 import org.qa82.analyzer.core.bean.InformationType;
-import org.qa82.analyzer.core.bean.InformationType.Multiplicity;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.EmptyInformation;
 import org.qa82.analyzer.core.impl.EmptyParameters;
-import org.qa82.analyzer.core.impl.SimpleAnalyzer;
 import org.qa82.analyzer.core.impl.SimpleInformation;
 
 public class RefinementProvider extends AbstractInformationProvider {
 	
-	public RefinementProvider(SimpleAnalyzer analyzer) {
+	public RefinementProvider(Analyzer analyzer) {
 		super(analyzer);
 	}
 	
@@ -62,9 +65,9 @@ public class RefinementProvider extends AbstractInformationProvider {
 
     private List<Element> getServicesFromAnalyzer() throws InformationNeedNotResolvableException {
 		List<Element> services = new ArrayList<Element>();
-		Information retrievedInformation = analyzer.resolve(new InformationType(Element.class, "service", Multiplicity.COLLECTION),
+        AnalyzerResult result = analyzer.resolve(new InformationType(Element.class, "service"),
 				new EmptyParameters());
-		if (retrievedInformation.isInformationPresent()) {
+        if (result.getInformation().isInformationPresent()) {
 
             // TODO: IMPLEMENT CONVERSION
 		}
@@ -75,18 +78,18 @@ public class RefinementProvider extends AbstractInformationProvider {
 	@Override
 	public Boolean provides(InformationType expectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
 	public Information resolve(InformationType expoectedInformation, Parameters parameters) {
 		// TODO Auto-generated method stub
-		return null;
+		return new EmptyInformation();
 	}
 
 	@Override
-	public List<InformationNeed> getProvidedInformation() {
+    public Set<InformationNeed> getProvidedInformation() {
 		// TODO Auto-generated method stub
-		return null;
+		return new HashSet<InformationNeed>();
 	}
 }

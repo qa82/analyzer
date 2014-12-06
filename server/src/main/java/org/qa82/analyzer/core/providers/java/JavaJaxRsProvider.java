@@ -13,21 +13,25 @@
 package org.qa82.analyzer.core.providers.java;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.qa82.analyzer.core.Analyzer;
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.annotations.Parameter;
 import org.qa82.analyzer.core.annotations.ProvidedFunction;
 import org.qa82.analyzer.core.bean.InformationNeed;
 import org.qa82.analyzer.core.bean.InformationType;
-import org.qa82.analyzer.core.impl.SimpleAnalyzer;
-import org.qa82.analyzer.core.impl.Element;
-import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.EmptyInformation;
+import org.qa82.analyzer.core.impl.EmptyParameters;
 
 public class JavaJaxRsProvider extends AbstractInformationProvider {
 	
-	public JavaJaxRsProvider(SimpleAnalyzer analyzer) {
+	public JavaJaxRsProvider(Analyzer analyzer) {
 		super(analyzer);
 	}
 
@@ -56,18 +60,25 @@ public class JavaJaxRsProvider extends AbstractInformationProvider {
 
     @Override
     public Boolean provides(InformationType expectedInformation, Parameters parameters) {
-        // TODO Auto-generated method stub
-        return null;
+        if ("http://cos.ontoware.org/cos#web-service".equals(expectedInformation.getType())
+                && Element.class.equals(expectedInformation.getClassType()))
+            return true;
+        return false;
     }
 
     @Override
     public Information resolve(InformationType expoectedInformation, Parameters parameters) {
         // TODO Auto-generated method stub
-        return null;
+        return new EmptyInformation();
     }
 	@Override
-	public List<InformationNeed> getProvidedInformation() {
+    public Set<InformationNeed> getProvidedInformation() {
 		// TODO Auto-generated method stub
-		return null;
+		Set<InformationNeed> needs = new HashSet<InformationNeed>();
+		InformationNeed need = new InformationNeed();
+		need.setExpectedInformationType(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service"));
+		need.setParameters(new EmptyParameters());
+		needs.add(need);
+		return needs;
 	}
 }
