@@ -7,7 +7,7 @@ import org.qa82.analyzer.core.providers.java.parser.Parser;
  * This interface represents the method definitions, which should be implemented in any JAX RS parser
  * Created by Pascal Giessler on 04.12.14.
  */
-public interface JaxRS_Parser extends Parser {
+public interface JaxRs_Compatibility extends Parser {
 
     /**
      * This method returns supported version number of the JAX RS reference implementation

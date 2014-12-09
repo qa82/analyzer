@@ -11,17 +11,17 @@ import static org.junit.Assert.*;
  * This class represents the tests for the Jersey JAX RS parser
  * Created by Pascal Giessler on 04.12.14.
  */
-public class JerseyParserTest {
+public class JaxRs_ParserTest {
 
-    private Jersey_JaxRS_Parser parser;
+    private JaxRs_Parser parser;
     private File testFile1;
     private File testFile2;
 
     @Before
     public void init() {
-        this.parser = new Jersey_JaxRS_Parser();
-        this.testFile1 = new File("src/test/java/org/qa82/analyzer/core/providers/java/parser/jaxrs/JerseyParserTestFile.java");
-        this.testFile2 = new File("src/test/java/org/qa82/analyzer/core/providers/java/parser/jaxrs/JerseyParserTestFile2.java");
+        this.parser = new JaxRs_Parser();
+        this.testFile1 = new File("src/test/java/org/qa82/analyzer/core/providers/java/parser/jaxrs/JaxRs_ParserTestFile.java");
+        this.testFile2 = new File("src/test/java/org/qa82/analyzer/core/providers/java/parser/jaxrs/JaxRsParserTestFile2.java");
     }
 
     @Test
@@ -64,8 +64,14 @@ public class JerseyParserTest {
     }
 
     @Test
-    public void shouldReturnCorrectClassName() {
+    public void shouldReturnCorrectClassNameWithUnderscore() {
         this.parser.parseFile(this.testFile1);
-        assertEquals("JerseyParserTestFile", this.parser.getClassName());
+        assertEquals("JaxRs_ParserTestFile", this.parser.getClassName());
+    }
+
+    @Test
+    public void shouldReturnCorrectClassName() {
+        this.parser.parseFile(this.testFile2);
+        assertEquals("JaxRsParserTestFile2", this.parser.getClassName());
     }
 }

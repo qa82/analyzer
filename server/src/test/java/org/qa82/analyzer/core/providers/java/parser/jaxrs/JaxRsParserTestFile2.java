@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  * Root resource (exposed at "myresource" path)
  */
 @Path("myresource")
-public class JerseyParserTestFile2 {
+public class JaxRsParserTestFile2 {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent

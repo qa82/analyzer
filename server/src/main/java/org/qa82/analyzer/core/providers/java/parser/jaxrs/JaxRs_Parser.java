@@ -13,12 +13,12 @@ import java.util.regex.Pattern;
  * This class is responsible for parsing JAX RS services made with the Jersey framework in version 2.
  * Created by Pascal Giessler on 04.12.14.
  */
-public class Jersey_JaxRS_Parser implements JaxRS_Parser {
+public class JaxRs_Parser implements JaxRs_Compatibility {
 
     private ArrayList<HTTPMethods> supportedMethods;
     private String resourceName;
     private String className;
-    private Logger logger = Logger.getLogger(Jersey_JaxRS_Parser.class.getName());
+    private Logger logger = Logger.getLogger(JaxRs_Parser.class.getName());
 
     @Override
     public String getSupportedJaxRSVersion() {
@@ -57,7 +57,7 @@ public class Jersey_JaxRS_Parser implements JaxRS_Parser {
     /**
      * This is the default constructor of the Jersey JAX RS Parser, which is responsible for initialization of important instance variables
      */
-    public Jersey_JaxRS_Parser() {
+    public JaxRs_Parser() {
         this.supportedMethods = new ArrayList<>();
     }
 
@@ -88,7 +88,7 @@ public class Jersey_JaxRS_Parser implements JaxRS_Parser {
      * @param line The line, which should be checked for a class name
      */
     private void extractClassName(String line) {
-        Pattern classNamePattern = Pattern.compile("class ([a-zA-Z]*)");
+        Pattern classNamePattern = Pattern.compile("class ([a-zA-Z0-9_-]*)");
         Matcher matcherForClassNamePattern = classNamePattern.matcher(line);
         if (matcherForClassNamePattern.find()) {
             this.setClassName(matcherForClassNamePattern.group(1));
@@ -101,7 +101,7 @@ public class Jersey_JaxRS_Parser implements JaxRS_Parser {
      * @param line The line, which should be checked
      */
     void checkForResourceClass(String line) {
-        Pattern pathAnnotationPattern = Pattern.compile("@Path\\(\"([a-zA-Z]*)\"\\)");
+        Pattern pathAnnotationPattern = Pattern.compile("@Path\\(\"([a-zA-Z0-9_-]*)\"\\)");
         Matcher matcherForPathAnnotationPattern = pathAnnotationPattern.matcher(line);
         if (matcherForPathAnnotationPattern.find()) {
             this.setResourceName(matcherForPathAnnotationPattern.group(1));

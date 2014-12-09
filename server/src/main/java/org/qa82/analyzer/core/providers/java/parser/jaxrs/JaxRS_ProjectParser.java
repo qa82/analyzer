@@ -7,11 +7,11 @@ import java.io.File;
 /**
  * Created by Pascal Giessler on 05.12.14.
  */
-public class JaxRS_ProjectParser implements Parser {
+public class JaxRs_ProjectParser implements Parser {
 
-    private JaxRS_Parser jaxRSParser;
+    private JaxRs_Compatibility jaxRSParser;
 
-    public JaxRS_ProjectParser(JaxRS_Parser parser) {
+    public JaxRs_ProjectParser(JaxRs_Compatibility parser) {
         this.jaxRSParser = parser;
     }
 
@@ -27,7 +27,7 @@ public class JaxRS_ProjectParser implements Parser {
         }
     }
 
-    private JaxRS_Parser getJaxRSParser() {
+    private JaxRs_Compatibility getJaxRSParser() {
         return jaxRSParser;
     }
 
