@@ -10,19 +10,26 @@
 * 
 *******************************************************************************/
 
-package org.qa82.analyzer.core.annotations;
+package org.qa82.analyzer.core.bean;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.qa82.analyzer.core.Information;
+import org.qa82.analyzer.core.Repository;
 
-@Target(ElementType.TYPE_USE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Parameter {
-	String type();
+public class Project {
 	
-	 Class<? extends Information> classType();
+	private Set<Repository> repositories = new HashSet<Repository>();
+	
+	public Set<Repository> getRepositories() {
+		return repositories;
+	}
+	
+	public void setRepositories(Set<Repository> repositories) {
+		this.repositories = repositories;
+	}
+	
+	public void addRepository(Repository repository) {
+		this.repositories.add(repository);
+	}
 }

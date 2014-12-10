@@ -16,15 +16,10 @@ import java.util.Collection;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
-import org.qa82.analyzer.core.impl.Project;
-import org.qa82.analyzer.core.impl.SimpleAnalyzer;
 
 @Path("informationproviders")
-public class InformationProviderResource {
-	
-	private Analyzer analyzer = new SimpleAnalyzer(new Project());
+public class InformationProviderResource extends AbstractResource {
 
 	@GET
 	public Collection<InformationProvider> getInformationProviders() {

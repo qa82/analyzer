@@ -21,6 +21,7 @@ import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
 
 public class SimpleAnalyzer implements Analyzer {

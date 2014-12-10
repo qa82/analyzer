@@ -15,8 +15,8 @@ package org.qa82.analyzer.core;
 import java.util.Collection;
 
 import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
-import org.qa82.analyzer.core.impl.Project;
 
 public interface Analyzer {
 

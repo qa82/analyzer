@@ -36,8 +36,7 @@ public class JavaJaxRsProvider extends AbstractInformationProvider {
 	}
 
 	@ProvidedFunction
-	public @Parameter(uri="REST Services") List<Element> getAllRestServices() {
-		System.out.println(analyzer.getProject().getRepository());
+	public @Parameter(type="REST Services", classType=Element.class) List<Element> getAllRestServices() {
 		List<Element> result = new ArrayList<Element>();
 		
 		for (int i = 0; i < 10; i++) {
@@ -49,12 +48,12 @@ public class JavaJaxRsProvider extends AbstractInformationProvider {
 	}
 	
 	@ProvidedFunction
-	public @Parameter(uri="restOperations") Object getAllRestServices(@Parameter(uri="restService") Object restService) {
+	public @Parameter(type="restOperations", classType=Element.class) Object getAllRestServices(@Parameter(type="restService", classType=Element.class) Object restService) {
 		return null;	
 	}
 	
 	@ProvidedFunction
-	public @Parameter(uri="serviceInterface") Element getServiceInterfaceOfService(@Parameter(uri="restService") Element restService) {
+	public @Parameter(type="serviceInterface", classType=Element.class) Element getServiceInterfaceOfService(@Parameter(type="restService", classType=Element.class) Element restService) {
 		return null;
 	}
 
@@ -80,5 +79,14 @@ public class JavaJaxRsProvider extends AbstractInformationProvider {
 		need.setParameters(new EmptyParameters());
 		needs.add(need);
 		return needs;
+	}
+	@Override
+	public String getDescritpion() {
+		return "This provider exemplarily shows the usage of ontologies in the provided information";
+	}
+	
+	@Override
+	public String getName() {
+		return "ExemplaryJavaJaxRsProvider";
 	}
 }

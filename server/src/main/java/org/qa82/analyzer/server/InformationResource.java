@@ -18,18 +18,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.bean.InformationNeed;
 import org.qa82.analyzer.core.impl.EmptyInformation;
-import org.qa82.analyzer.core.impl.Project;
-import org.qa82.analyzer.core.impl.SimpleAnalyzer;
 import org.qa82.analyzer.core.impl.SimpleAnalyzerResult;
 
 @Path("information")
-public class InformationResource {
-
-	private Analyzer analyzer = new SimpleAnalyzer(new Project());
+public class InformationResource extends AbstractResource {
 
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)

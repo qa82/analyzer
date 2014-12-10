@@ -31,6 +31,8 @@ import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.impl.EmptyInformation;
 import org.qa82.analyzer.core.impl.EmptyParameters;
 import org.qa82.analyzer.core.impl.SimpleInformation;
+import org.qa82.analyzer.core.impl.SortedParameters;
+import org.qa82.analyzer.core.impl.StringInformation;
 
 public class RefinementProvider extends AbstractInformationProvider {
 	
@@ -39,29 +41,39 @@ public class RefinementProvider extends AbstractInformationProvider {
 	}
 	
 	@ProvidedFunction
-	public @Parameter(uri="test2") Object doSomething2(@Parameter(uri="") Object a) {
+	@Parameter(type = "test", classType = StringInformation.class)
+	public Object doSomething2(@Parameter(type="test",classType=Element.class) Object a) {
         return "L�uft2";
 	}
 	
 	@ProvidedFunction
-	public @Parameter(uri="test") Object doSomething(@Parameter(uri="") Object a) {
+	@Parameter(type = "test", classType = StringInformation.class)
+	public Object doSomething() {
         return "L�uft";
 	}
 	
 	@ProvidedFunction
-    public @Parameter(uri = "operations") Information getAllProvidedOperations() throws InformationNeedNotResolvableException {
+	@Parameter(type = "operations", classType = Element.class)
+    public Information getAllProvidedOperations() throws InformationNeedNotResolvableException {
 		List<Element> services = getServicesFromAnalyzer();
 		
         List<Element> serviceOperations = new ArrayList<Element>();
-        services.forEach((service) -> serviceOperations.add(getOperationsForServiceFromAnalyzer(service)));
+        services.forEach((service) -> {
+        	InformationType expectedInformation = new InformationType(Element.class, "operation");
+        	SortedParameters parameters = new SortedParameters();
+        	parameters.add(service);
+        	
+        	AnalyzerResult result;
+			try {
+				result = analyzer.resolve(expectedInformation, parameters);
+	        	serviceOperations.add((Element) result.getInformation());
+			} catch (InformationNeedNotResolvableException e) {
+				e.printStackTrace();
+			}
+        });
 			
         return new SimpleInformation(serviceOperations);
 	}
-
-    private Element getOperationsForServiceFromAnalyzer(Element service) {
-        // TODO Auto-generated method stub
-        return new Element("");
-    }
 
     private List<Element> getServicesFromAnalyzer() throws InformationNeedNotResolvableException {
 		List<Element> services = new ArrayList<Element>();
@@ -74,22 +86,25 @@ public class RefinementProvider extends AbstractInformationProvider {
 
 		return services;
 	}
-
+	
 	@Override
-	public Boolean provides(InformationType expectedInformation, Parameters parameters) {
-		// TODO Auto-generated method stub
-		return false;
+	public String getDescritpion() {
+		return "This refinement provider examplarily shows how to call the analyzer again within an information provider.";
+	}
+	
+	@Override
+	public String getName() {
+		return "ExemplaryRefinementProvider";
 	}
 
 	@Override
-	public Information resolve(InformationType expoectedInformation, Parameters parameters) {
-		// TODO Auto-generated method stub
+	public Information resolve(InformationType expoectedInformation,
+			Parameters parameters) {
 		return new EmptyInformation();
 	}
 
 	@Override
-    public Set<InformationNeed> getProvidedInformation() {
-		// TODO Auto-generated method stub
+	public Set<InformationNeed> getProvidedInformation() {
 		return new HashSet<InformationNeed>();
 	}
 }

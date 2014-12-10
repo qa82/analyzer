@@ -20,20 +20,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.bean.InformationNeed;
-import org.qa82.analyzer.core.impl.Project;
-import org.qa82.analyzer.core.impl.SimpleAnalyzer;
 
 @Path("informationneeds")
-public class InformationNeedResource {
-
-	private Analyzer analyzer = new SimpleAnalyzer(new Project());
+public class InformationNeedResource extends AbstractResource {
 
 	@Path("provided")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Set<InformationNeed> getProvidedInformation() {
+		
 		Set<InformationNeed> providedInformationNeeds = new HashSet<InformationNeed>();
 
 		analyzer.getInformationProviders().forEach(

@@ -25,6 +25,10 @@ import org.qa82.analyzer.core.bean.InformationType;
  * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
  */
 public interface InformationProvider {
+	
+	public String getName();
+	
+	public String getDescritpion();
 
 	public Boolean provides(InformationType expectedInformation, Parameters parameters);
 
