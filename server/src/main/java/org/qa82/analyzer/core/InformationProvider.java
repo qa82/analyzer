@@ -28,11 +28,11 @@ public interface InformationProvider {
 	
 	public String getName();
 	
-	public String getDescritpion();
+	public String getDescription();
 
 	public Boolean provides(InformationType expectedInformation, Parameters parameters);
 
-	public Information resolve(InformationType expoectedInformation, Parameters parameters);
+	public Information resolve(InformationType expectedInformation, Parameters parameters);
 
     public Set<InformationNeed> getProvidedInformation();
 
