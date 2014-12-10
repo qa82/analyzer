@@ -11,9 +11,9 @@ public class FileSystemRepository implements Repository {
 
 	private File repositoryRoot;
 
+	//TODO: rootPath should be a directory. Need to be checked
 	public FileSystemRepository(String rootPath) {
 		this.repositoryRoot = new File(rootPath);
-		assert (this.repositoryRoot.isDirectory());
 	}
 
 	@Override
