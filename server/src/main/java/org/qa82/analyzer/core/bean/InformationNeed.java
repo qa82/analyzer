@@ -25,6 +25,18 @@ public class InformationNeed {
 
 	private Parameters parameters;
 
+	/**
+	 * Empty constructor for serialization.
+	 */
+	public InformationNeed() {
+
+	}
+
+	public InformationNeed(InformationType expectedInformationType, Parameters parameters) {
+		this.setExpectedInformationType(expectedInformationType);
+		this.setParameters(parameters);
+	}
+
 	public void setParameters(Parameters parameters) {
 		this.parameters = parameters;
 	}
