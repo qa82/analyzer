@@ -12,6 +12,7 @@
 
 package org.qa82.analyzer.core.impl;
 
+
 /**
  * Information with type boolean.
  * 

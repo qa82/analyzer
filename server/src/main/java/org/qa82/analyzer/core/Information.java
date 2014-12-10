@@ -12,6 +12,7 @@
 
 package org.qa82.analyzer.core;
 
+
 /**
  * Information that can be accepted as parameter or returned by an analyzer or information provider. The combination of information and
  * parameters describes an information need.

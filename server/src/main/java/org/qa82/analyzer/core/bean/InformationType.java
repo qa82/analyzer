@@ -26,12 +26,6 @@ public class InformationType {
 	private Class<? extends Information> classType;
 	/** The type described as string, may be connected to an ontology. */
 	private String type;
-	
-	/**
-	 * Empty constructor for serialization.
-	 */
-	public InformationType() {
-	}
 
 	/**
 	 * Define an information type with class and string.

@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.ParameterList;
 import org.qa82.analyzer.core.impl.Element;
 
 //@RunWith(MockitoJUnitRunner.class)

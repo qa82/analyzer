@@ -12,9 +12,6 @@
 
 package org.qa82.analyzer.core.impl;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.qa82.analyzer.core.Information;
 
 public abstract class AbstractInformation implements Information {
@@ -37,26 +34,6 @@ public abstract class AbstractInformation implements Information {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public Optional<Element> getAsElement() {
-		return Optional.ofNullable((getValue() != null && getValue() instanceof Element) ? (Element) getValue() : null);
-	}
-
-	public Optional<Boolean> getAsBoolean() {
-		return Optional.ofNullable((getValue() != null && getValue() instanceof Boolean) ? (Boolean) getValue() : null);
-	}
-
-	public Optional<String> getAsString() {
-		return Optional.ofNullable((getValue() != null && getValue() instanceof String) ? (String) getValue() : null);
-	}
-
-	public Optional<Double> getAsDouble() {
-		return Optional.ofNullable((getValue() != null && getValue() instanceof Double) ? (Double) getValue() : null);
-	}
-
-	public Optional<List<?>> getAsInformationList() {
-		return Optional.ofNullable((getValue() != null && getValue() instanceof List<?>) ? (List<?>) getValue() : null);
 	}
 
 }

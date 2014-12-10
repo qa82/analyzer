@@ -12,11 +12,10 @@
 
 package org.qa82.analyzer.core.impl;
 
+import java.util.List;
+
 import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.Information;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple result of an analysis including only the resolved information.
