@@ -15,6 +15,9 @@ package org.qa82.analyzer.core.impl;
 import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.Information;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple result of an analysis including only the resolved information.
  *
@@ -22,14 +25,14 @@ import org.qa82.analyzer.core.Information;
  */
 public class SimpleAnalyzerResult implements AnalyzerResult {
 
-    private Information resolvedInformation;
+    private List<Information> resolvedInformation;
 
-    public SimpleAnalyzerResult(Information resolvedInformation) {
+    public SimpleAnalyzerResult(List<Information> resolvedInformation) {
         this.resolvedInformation = resolvedInformation;
     }
 
     @Override
-    public Information getInformation() {
+    public List<Information> getInformation() {
         return resolvedInformation;
     }
 

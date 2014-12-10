@@ -12,22 +12,20 @@
 
 package org.qa82.analyzer.core.impl;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.InformationProviderRepository;
-import org.qa82.analyzer.core.providers.java.JavaJaxRsProvider;
-import org.qa82.analyzer.core.providers.java.RefinementProvider;
+import org.qa82.analyzer.core.providers.java.JaxRs_ServiceProvider;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class InformationProviderRepositoryImpl implements InformationProviderRepository {
 
 	private Set<InformationProvider> informationProviders = new HashSet<InformationProvider>();
 	
 	public InformationProviderRepositoryImpl(Analyzer analyzer) {
-		informationProviders.add(new RefinementProvider(analyzer));
-		informationProviders.add(new JavaJaxRsProvider(analyzer));
+		informationProviders.add(new JaxRs_ServiceProvider(analyzer));
 	}
 	
 	/* (non-Javadoc)

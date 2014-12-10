@@ -1,21 +1,20 @@
 package org.qa82.analyzer.core.impl;
 
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.qa82.analyzer.core.Analyzer;
-import org.qa82.analyzer.core.AnalyzerResult;
-import org.qa82.analyzer.core.InformationProvider;
-import org.qa82.analyzer.core.Parameters;
+import org.qa82.analyzer.core.*;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleAnalyzerTest {
@@ -56,14 +55,16 @@ public class SimpleAnalyzerTest {
 	public void testResolveSupportedNeed() throws InformationNeedNotResolvableException {
 		// given
 		InformationType expectedInformation = new InformationType(Element.class, "Some information type");
+		ArrayList<Information> foundInformation = new ArrayList<Information>();
+		foundInformation.add(new EmptyInformation());
 
 		when(informationProvider.provides(expectedInformation, parameters)).thenReturn(true);
-		when(informationProvider.resolve(expectedInformation, parameters)).thenReturn(new Element(""));
+		when(informationProvider.resolve(expectedInformation, parameters)).thenReturn(foundInformation);
         analyzer.addInformationProvider(informationProvider);
 		// when
         AnalyzerResult result = analyzer.resolve(expectedInformation, parameters);
 		// then
-        assertTrue("The analyzer should offer the information of the information provider.", result.getInformation().isInformationPresent());
+        assertTrue("The analyzer should offer the information of the information provider.", !result.getInformation().isEmpty());
 	}
 
     @Test(expected = InformationNeedNotResolvableException.class)

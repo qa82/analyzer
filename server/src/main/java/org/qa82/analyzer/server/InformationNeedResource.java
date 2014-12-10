@@ -20,7 +20,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.bean.InformationNeed;
+import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.impl.Element;
 
 @Path("informationneeds")
 public class InformationNeedResource extends AbstractResource {
@@ -33,7 +36,7 @@ public class InformationNeedResource extends AbstractResource {
 		Set<InformationNeed> providedInformationNeeds = new HashSet<InformationNeed>();
 
 		analyzer.getInformationProviders().forEach(
-				(provider) -> providedInformationNeeds.addAll(provider
+				(provider) -> providedInformationNeeds.add(provider
 						.getProvidedInformation()));
 
 		return providedInformationNeeds;

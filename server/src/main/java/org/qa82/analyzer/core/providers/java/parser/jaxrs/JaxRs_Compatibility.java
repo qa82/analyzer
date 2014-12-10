@@ -10,6 +10,11 @@ import org.qa82.analyzer.core.providers.java.parser.Parser;
 public interface JaxRs_Compatibility extends Parser {
 
     /**
+     * This methods returns true, if the parsed file is a JAX-RS class
+     */
+    public boolean isFileAJaxRsClass();
+
+    /**
      * This method returns supported version number of the JAX RS reference implementation
      * @return supported version number
      */

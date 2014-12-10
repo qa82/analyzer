@@ -12,21 +12,21 @@
 
 package org.qa82.analyzer.server;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.qa82.analyzer.core.AnalyzerResult;
+import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.bean.InformationNeed;
 import org.qa82.analyzer.core.impl.EmptyInformation;
 import org.qa82.analyzer.core.impl.SimpleAnalyzerResult;
 
+import java.util.ArrayList;
+
 @Path("information")
 public class InformationResource extends AbstractResource {
 
-	@GET
+	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public AnalyzerResult resolveInformationNeed(InformationNeed informationNeed) {
@@ -40,6 +40,7 @@ public class InformationResource extends AbstractResource {
 	}
 
 	private AnalyzerResult handleAnalyzerException(Throwable e) {
-		return new SimpleAnalyzerResult(new EmptyInformation());
+		e.printStackTrace();
+		return new SimpleAnalyzerResult(new ArrayList<Information>());
 	}
 }

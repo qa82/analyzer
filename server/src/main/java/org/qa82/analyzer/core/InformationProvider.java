@@ -12,6 +12,7 @@
 
 package org.qa82.analyzer.core;
 
+import java.util.List;
 import java.util.Set;
 
 import org.qa82.analyzer.core.bean.InformationNeed;
@@ -32,8 +33,8 @@ public interface InformationProvider {
 
 	public Boolean provides(InformationType expectedInformation, Parameters parameters);
 
-	public Information resolve(InformationType expectedInformation, Parameters parameters);
+	public List<Information> resolve(InformationType expectedInformation, Parameters parameters);
 
-    public Set<InformationNeed> getProvidedInformation();
+    public InformationNeed getProvidedInformation();
 
 }

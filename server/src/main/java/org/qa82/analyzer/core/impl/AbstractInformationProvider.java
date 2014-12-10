@@ -31,11 +31,19 @@ public abstract class AbstractInformationProvider implements InformationProvider
 	}
 	
 	@Override
+	//TODO: Constraint need to be fixed
 	public Boolean provides(InformationType expectedInformation,
 			Parameters parameters) {
-		InformationNeed informationNeed = new InformationNeed();
-		informationNeed.setExpectedInformationType(expectedInformation);
-		informationNeed.setParameters(parameters);
-		return getProvidedInformation().contains(informationNeed);
+		if (expectedInformation == null) {
+			return false;
+		}
+		return isInformationneedEqual(expectedInformation,parameters);
+	}
+
+	protected Boolean isInformationneedEqual(InformationType expectedInformation,
+											 Parameters parameters) {
+		boolean isEqualClassType = getProvidedInformation().getExpectedInformationType().getClassType().equals(expectedInformation.getClassType());
+		boolean isEqualType = getProvidedInformation().getExpectedInformationType().getType().equals(expectedInformation.getType());
+		return isEqualClassType && isEqualType;
 	}
 }

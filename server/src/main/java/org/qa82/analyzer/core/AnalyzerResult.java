@@ -12,6 +12,8 @@
 
 package org.qa82.analyzer.core;
 
+import java.util.List;
+
 /**
  * Common interface for results of an analyzer. May be enhanced to offer additional information such as a trace of the analysis or its
  * duration.
@@ -20,6 +22,6 @@ package org.qa82.analyzer.core;
  */
 public interface AnalyzerResult {
 
-    public Information getInformation();
+    public List<Information> getInformation();
 
 }

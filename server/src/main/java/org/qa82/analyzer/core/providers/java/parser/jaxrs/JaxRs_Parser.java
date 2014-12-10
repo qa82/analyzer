@@ -45,6 +45,11 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
         return this.className;
     }
 
+    @Override
+    public boolean isFileAJaxRsClass() {
+        return this.isThisAResourceClass();
+    }
+
     /**
      * This method is responsible for starting the parser
      *
