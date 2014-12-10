@@ -41,7 +41,7 @@ public class FileSystemRepository implements Repository {
 			for (File temp : file.listFiles()) {
 			    if (temp.isDirectory()) {
 			    	searchFileMatching(pattern, temp, matchingFiles);
-			    } else if (pattern.matcher(temp.getName()).matches()) {
+			    } else if (pattern.matcher(temp.getName()).find()) {
 				    matchingFiles.add(temp);
 			    }
 		
