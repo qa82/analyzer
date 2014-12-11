@@ -15,12 +15,13 @@ package org.qa82.analyzer.core;
 import java.util.Collection;
 
 import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.ParameterList;
 import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
 
 public interface Analyzer {
 
-    public AnalyzerResult resolve(InformationType expectedInformation, Parameters parameters)
+	public AnalyzerResult resolve(InformationType expectedInformation, ParameterList parameters)
 			throws InformationNeedNotResolvableException;
 
     public void setProject(Project project);

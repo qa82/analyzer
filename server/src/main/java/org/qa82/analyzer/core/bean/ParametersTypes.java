@@ -9,27 +9,17 @@
  * Michael Gebhart - initial idea and concept
  * 
  *******************************************************************************/
+package org.qa82.analyzer.core.bean;
 
-package org.qa82.analyzer.core.impl;
+import java.util.ArrayList;
 
+/**
+ * Defines the types of parameters.
+ * 
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
+public class ParametersTypes extends ArrayList<InformationType> {
 
-public class SimpleInformation extends AbstractInformation {
-
-    private Object informationObject;
-
-    public SimpleInformation(Object informationObject) {
-        super(informationObject.getClass().toString());
-        this.informationObject = informationObject;
-    }
-
-    @Override
-    public Object getValue() {
-        return informationObject;
-    }
-
-    @Override
-    public Boolean isInformationPresent() {
-        return informationObject == null;
-    }
+	private static final long serialVersionUID = 787314857420622721L;
 
 }

@@ -12,16 +12,17 @@
 
 package org.qa82.analyzer.server;
 
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.qa82.analyzer.core.AnalyzerResult;
-import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.bean.InformationNeed;
-import org.qa82.analyzer.core.impl.EmptyInformation;
-import org.qa82.analyzer.core.impl.SimpleAnalyzerResult;
-
-import java.util.ArrayList;
+import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.ParameterList;
+import org.qa82.analyzer.server.dto.AnalyzerResultDto;
+import org.qa82.analyzer.server.dto.InformationNeedDto;
 
 @Path("information")
 public class InformationResource extends AbstractResource {
@@ -29,18 +30,21 @@ public class InformationResource extends AbstractResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public AnalyzerResult resolveInformationNeed(InformationNeed informationNeed) {
+	public AnalyzerResultDto resolveInformationNeed(InformationNeedDto informationNeed) {
 		try {
-			return analyzer.resolve(
-					informationNeed.getExpectedInformationType(),
-					informationNeed.getParameters());
+			InformationType expectedInformationType = informationNeed.getExptectedInformationType().convertToInformationType();
+			ParameterList parameterList = informationNeed.getParameterList().convertToParameterList();
+			AnalyzerResult result = analyzer.resolve(expectedInformationType, parameterList);
+
+			AnalyzerResultDto analyzerResultDto = new AnalyzerResultDto(result);
+			return analyzerResultDto;
 		} catch (Throwable e) {
 			return handleAnalyzerException(e);
 		}
 	}
 
-	private AnalyzerResult handleAnalyzerException(Throwable e) {
+	private AnalyzerResultDto handleAnalyzerException(Throwable e) {
 		e.printStackTrace();
-		return new SimpleAnalyzerResult(new ArrayList<Information>());
+		return new AnalyzerResultDto();
 	}
 }

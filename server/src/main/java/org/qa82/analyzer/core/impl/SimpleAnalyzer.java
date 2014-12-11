@@ -19,11 +19,18 @@ import java.util.Set;
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.InformationProvider;
-import org.qa82.analyzer.core.Parameters;
 import org.qa82.analyzer.core.bean.InformationType;
+import org.qa82.analyzer.core.bean.ParameterList;
 import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
 
+/**
+ * Simple analyzer implementation that goes through all providers and calls the
+ * first matching. Thus, no merging between results of different providers
+ * supporting the same need is implemented.
+ * 
+ * @author Roland Steinegger, Karlsruhe Institute of Technology, Germany
+ */
 public class SimpleAnalyzer implements Analyzer {
 
 	private Set<InformationProvider> providers = new HashSet<InformationProvider>();
@@ -31,11 +38,11 @@ public class SimpleAnalyzer implements Analyzer {
 
 	public SimpleAnalyzer(Project project) {
 		this.project = project;
-		InformationProviderRepositoryImpl providerRepository = new InformationProviderRepositoryImpl(
-				this);
+		InformationProviderRepositoryImpl providerRepository = new InformationProviderRepositoryImpl(this);
 		providers.addAll(providerRepository.getInformationProviders());
 	}
 
+	@Override
 	public Project getProject() {
 		return project;
 	}
@@ -60,28 +67,22 @@ public class SimpleAnalyzer implements Analyzer {
 	 * .InformationType, org.qa82.analyzer.core.Parameters)
 	 */
 	@Override
-	public AnalyzerResult resolve(InformationType expectedInformation,
-			Parameters parameters) throws InformationNeedNotResolvableException {
-		if (providers.stream().noneMatch(
-				(provider) -> provider
-						.provides(expectedInformation, parameters))) {
-			throw new InformationNeedNotResolvableException(
-					"No provider supports the information need.");
+	public AnalyzerResult resolve(InformationType expectedInformation, ParameterList parameters) throws InformationNeedNotResolvableException {
+		if (providers.stream().noneMatch((provider) -> provider.provides(expectedInformation, parameters.getTypes()))) {
+			throw new InformationNeedNotResolvableException("No provider supports the information need.");
 		}
 
-		InformationProvider providerSupportingInformationNeed = providers
-				.stream()
-				.filter((provider) -> provider.provides(expectedInformation,
-						parameters)).findFirst().get();
-		return new SimpleAnalyzerResult(
-				providerSupportingInformationNeed.resolve(expectedInformation,
-						parameters));
+		InformationProvider providerSupportingInformationNeed = providers.stream()
+				.filter((provider) -> provider.provides(expectedInformation, parameters.getTypes())).findFirst().get();
+		AnalyzerResult analyzerResult = new SimpleAnalyzerResult(providerSupportingInformationNeed.resolve(expectedInformation, parameters));
+		return analyzerResult;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.qa82.analyzer.core.impl.Analyzer#setProviders(java.util.Collection)
+	 * @see
+	 * org.qa82.analyzer.core.impl.Analyzer#setProviders(java.util.Collection)
 	 */
 	@Override
 	public void setProviders(Collection<InformationProvider> providers) {
@@ -109,5 +110,4 @@ public class SimpleAnalyzer implements Analyzer {
 	public Set<InformationProvider> getInformationProviders() {
 		return providers;
 	}
-
 }

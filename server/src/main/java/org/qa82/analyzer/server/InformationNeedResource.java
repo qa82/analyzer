@@ -9,7 +9,6 @@
  * Michael Gebhart - initial idea and concept
  * 
  *******************************************************************************/
-
 package org.qa82.analyzer.server;
 
 import java.util.HashSet;
@@ -20,10 +19,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.qa82.analyzer.core.Parameters;
-import org.qa82.analyzer.core.bean.InformationNeed;
-import org.qa82.analyzer.core.bean.InformationType;
-import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.bean.InformationNeedDescription;
+import org.qa82.analyzer.server.dto.InformationNeedDescriptionDto;
 
 @Path("informationneeds")
 public class InformationNeedResource extends AbstractResource {
@@ -31,14 +28,16 @@ public class InformationNeedResource extends AbstractResource {
 	@Path("provided")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Set<InformationNeed> getProvidedInformation() {
+	public Set<InformationNeedDescriptionDto> getProvidedInformation() {
 		
-		Set<InformationNeed> providedInformationNeeds = new HashSet<InformationNeed>();
+		Set<InformationNeedDescription> providedInformationNeeds = new HashSet<InformationNeedDescription>();
 
 		analyzer.getInformationProviders().forEach(
 				(provider) -> providedInformationNeeds.add(provider
 						.getProvidedInformation()));
 
-		return providedInformationNeeds;
+		Set<InformationNeedDescriptionDto> providedInformationNeedDtos = new HashSet<InformationNeedDescriptionDto>();
+		providedInformationNeeds.forEach((need) -> providedInformationNeedDtos.add(new InformationNeedDescriptionDto(need)));
+		return providedInformationNeedDtos;
 	}
 }
