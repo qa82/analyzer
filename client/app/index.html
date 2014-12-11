@@ -184,16 +184,16 @@
                     <div class="col-lg-12">
                         <h2 class="page-header">Analysis<small> </small></h2>
                         <section>
-                            <div class="panel panel-default" ng-controller="QA82_QueryController">
+                            <div class="panel panel-default" ng-init="init()" ng-controller="QA82_QueryController">
                                 <div class="panel-heading"><h3 class="panel-title">Query</h3></div>
                                 <div class="panel-body">
                                     <form class="form-inline" role="form" ng-submit="analyze()">
                                         <div class="form-group">
-                                            <select ng-model="selectedQualityAnalysis" id="qa82_qa_selection_form" ng-options="qualityAnalysis.name for qualityAnalysis in qualityAnalysisList" class="form-control">
-                                                <option>Get available web services</option>
+                                            <select ng-model="selectedQualityAnalysis" id="qa82_qa_selection_form" ng-options="qualityAnalysis.expectedInformationType.description for qualityAnalysis in qualityAnalysisList" class="form-control">
+                                                <option value="">-- Please select your analysis --</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Analyze</button>
+                                        <button type="submit" class="btn btn-primary" ng-disabled="selectedQualityAnalysis == null">Analyze</button>
                                     </form>
                                 </div>
                             </div>
