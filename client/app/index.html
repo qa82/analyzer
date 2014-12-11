@@ -197,7 +197,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="resultAvailable">
+                            <div class="panel panel-default" ng-show="resultAvailable" ng-controller="QA82_ResultController">
                                 <div class="panel-heading"><h3 class="panel-title">Result</h3></div>
                                 <div class="panel-body">
                                     <table class="table table-striped">
@@ -252,6 +252,7 @@
         <!-- build:js js/scripts.js -->
         <script src="js/app.js"></script>
         <script src="js/controller/qa82_queryController.js"></script>
+        <script src="js/controller/qa82_resultController.js"></script>
         <script src="js/modules/http/qa82_http_module.js"></script>
         <!-- endbuild -->
 
