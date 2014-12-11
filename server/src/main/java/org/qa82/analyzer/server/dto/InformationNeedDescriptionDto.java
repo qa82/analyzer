@@ -19,7 +19,7 @@ import org.qa82.analyzer.core.bean.ParametersTypes;
 
 public class InformationNeedDescriptionDto {
 
-	private InformationTypeDto exptectedInformationType;
+	private InformationTypeDto expectedInformationType;
 
 	private List<InformationTypeDto> parametersTypes;
 
@@ -30,25 +30,25 @@ public class InformationNeedDescriptionDto {
 		super();
 	}
 
-	public InformationNeedDescriptionDto(InformationTypeDto exptectedInformationType, List<InformationTypeDto> parametersTypes) {
+	public InformationNeedDescriptionDto(InformationTypeDto expectedInformationType, List<InformationTypeDto> parametersTypes) {
 		super();
-		this.exptectedInformationType = exptectedInformationType;
+		this.expectedInformationType = expectedInformationType;
 		this.parametersTypes = parametersTypes;
 	}
 
 	public InformationNeedDescriptionDto(InformationNeedDescription need) {
-		setExptectedInformationType(new InformationTypeDto(need.getExpectedInformationType()));
+		setExpectedInformationType(new InformationTypeDto(need.getExpectedInformationType()));
 		List<InformationTypeDto> informationTypeDtos = new ArrayList<InformationTypeDto>();
 		need.getParametersTypes().forEach((type) -> informationTypeDtos.add(new InformationTypeDto(type)));
 		setParametersTypes(informationTypeDtos);
 	}
 
-	public InformationTypeDto getExptectedInformationType() {
-		return exptectedInformationType;
+	public InformationTypeDto getExpectedInformationType() {
+		return expectedInformationType;
 	}
 
-	public void setExptectedInformationType(InformationTypeDto exptectedInformationType) {
-		this.exptectedInformationType = exptectedInformationType;
+	public void setExpectedInformationType(InformationTypeDto expectedInformationType) {
+		this.expectedInformationType = expectedInformationType;
 	}
 
 	public List<InformationTypeDto> getParametersTypes() {
@@ -62,7 +62,7 @@ public class InformationNeedDescriptionDto {
 	public InformationNeedDescription convertToInformationNeed() {
 		ParametersTypes parametersTypes = new ParametersTypes();
 		getParametersTypes().forEach((type) -> parametersTypes.add(type.convertToInformationType()));
-		InformationNeedDescription informationNeed = new InformationNeedDescription(getExptectedInformationType().convertToInformationType(), parametersTypes);
+		InformationNeedDescription informationNeed = new InformationNeedDescription(getExpectedInformationType().convertToInformationType(), parametersTypes);
 		return informationNeed;
 	}
 
