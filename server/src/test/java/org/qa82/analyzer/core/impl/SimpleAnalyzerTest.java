@@ -47,7 +47,7 @@ public class SimpleAnalyzerTest {
 	@Test(expected = InformationNeedNotResolvableException.class)
 	public void testResolveWithNullValue() throws InformationNeedNotResolvableException {
 		// given
-		InformationType expectedInformation = new InformationType(Element.class, "unsupported");
+		InformationType expectedInformation = new InformationType(Element.class, "unsupported", "");
 		// when
 		analyzer.resolve(expectedInformation, parameters);
 		// then expect InformationNeedNotResolvableException
@@ -56,7 +56,7 @@ public class SimpleAnalyzerTest {
 	@Test(expected = InformationNeedNotResolvableException.class)
 	public void testResolveWithUnsupportedInformationNeed() throws InformationNeedNotResolvableException {
 		// given
-		InformationType expectedInformation = new InformationType(Element.class, "Unsupported with cryptic name");
+		InformationType expectedInformation = new InformationType(Element.class, "Unsupported with cryptic name", "");
 		// when
 		analyzer.resolve(expectedInformation, parameters);
 		// then expect InformationNeedNotResolvableException
@@ -65,7 +65,7 @@ public class SimpleAnalyzerTest {
 	@Test
 	public void testResolveSupportedNeed() throws InformationNeedNotResolvableException {
 		// given
-		InformationType expectedInformation = new InformationType(Element.class, "Some information type");
+		InformationType expectedInformation = new InformationType(Element.class, "Some information type", "");
 		ArrayList<Information> foundInformation = new ArrayList<Information>();
 		foundInformation.add(new EmptyInformation());
 
@@ -81,7 +81,7 @@ public class SimpleAnalyzerTest {
 	@Test(expected = InformationNeedNotResolvableException.class)
 	public void testResolveUnsupportedNeed() throws InformationNeedNotResolvableException {
 		// given
-		InformationType unsupportedInformation = new InformationType(Element.class, "Some unsupported information type");
+		InformationType unsupportedInformation = new InformationType(Element.class, "Some unsupported information type", "");
 		when(informationProvider.provides(unsupportedInformation, parametersTypes)).thenReturn(false);
 		analyzer.addInformationProvider(informationProvider);
 		// when

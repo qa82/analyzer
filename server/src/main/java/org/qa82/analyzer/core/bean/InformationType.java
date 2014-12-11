@@ -26,6 +26,9 @@ public class InformationType {
 	private Class<? extends Information> classType;
 	/** The type described as string, may be connected to an ontology. */
 	private String type;
+	/** The description of the information need */
+	private String description;
+
 
 	/**
 	 * Define an information type with class and string.
@@ -33,25 +36,33 @@ public class InformationType {
 	 * @param classType Java type expected
 	 * @param type Type described as string, may be a ontology uri
 	 */
-	public InformationType(Class<? extends Information> classType, String type) {
-		this.classType = classType;
-		this.type = type;
+	public InformationType(Class<? extends Information> classType, String type, String description) {
+		this.setClassType(classType);
+		this.setType(type);
+		this.setDescription(description);
 	}
 
 	public Class<? extends Information> getClassType() {
 		return classType;
 	}
 
-	public void setClassType(Class<? extends Information> classType) {
-		this.classType = classType;
-	}
-
 	public String getType() {
 		return type;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setClassType(Class<? extends Information> classType) {
+		this.classType = classType;
 	}
 
 	public void setType(String type) {
 		this.type = type;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

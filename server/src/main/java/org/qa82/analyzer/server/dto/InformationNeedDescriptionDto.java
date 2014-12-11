@@ -43,27 +43,30 @@ public class InformationNeedDescriptionDto {
 		setParametersTypes(informationTypeDtos);
 	}
 
-	public InformationTypeDto getExpectedInformationType() {
-		return expectedInformationType;
-	}
-
-	public void setExpectedInformationType(InformationTypeDto expectedInformationType) {
-		this.expectedInformationType = expectedInformationType;
-	}
-
-	public List<InformationTypeDto> getParametersTypes() {
-		return parametersTypes;
-	}
-
-	public void setParametersTypes(List<InformationTypeDto> parametersTypes) {
-		this.parametersTypes = parametersTypes;
-	}
-
 	public InformationNeedDescription convertToInformationNeed() {
 		ParametersTypes parametersTypes = new ParametersTypes();
 		getParametersTypes().forEach((type) -> parametersTypes.add(type.convertToInformationType()));
 		InformationNeedDescription informationNeed = new InformationNeedDescription(getExpectedInformationType().convertToInformationType(), parametersTypes);
 		return informationNeed;
 	}
+
+	public InformationTypeDto getExpectedInformationType() {
+		return expectedInformationType;
+	}
+
+	public List<InformationTypeDto> getParametersTypes() {
+		return parametersTypes;
+	}
+
+
+	public void setExpectedInformationType(InformationTypeDto expectedInformationType) {
+		this.expectedInformationType = expectedInformationType;
+	}
+
+	public void setParametersTypes(List<InformationTypeDto> parametersTypes) {
+		this.parametersTypes = parametersTypes;
+	}
+
+
 
 }

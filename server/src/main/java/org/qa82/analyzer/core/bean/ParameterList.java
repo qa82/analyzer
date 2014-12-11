@@ -27,7 +27,7 @@ public class ParameterList extends ArrayList<Information> {
 
 	public ParametersTypes getTypes() {
 		ParametersTypes parametersTypes = new ParametersTypes();
-		this.forEach((information) -> parametersTypes.add(new InformationType(information.getClass(), information.getType())));
+		this.forEach((information) -> parametersTypes.add(new InformationType(information.getClass(), information.getType(), "")));
 		return parametersTypes;
 	}
 }

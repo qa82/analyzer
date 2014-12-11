@@ -3,7 +3,7 @@ package org.qa82.analyzer.server.dto;
 
 public class InformationNeedDto {
 
-	private InformationTypeDto exptectedInformationType;
+	private InformationTypeDto expectedInformationType;
 
 	private ParameterListDto parameterList;
 
@@ -13,18 +13,18 @@ public class InformationNeedDto {
 	public InformationNeedDto() {
 	}
 
-	public InformationNeedDto(InformationTypeDto exptectedInformationType, ParameterListDto parameterList) {
+	public InformationNeedDto(InformationTypeDto expectedInformationType, ParameterListDto parameterList) {
 		super();
-		this.exptectedInformationType = exptectedInformationType;
+		this.expectedInformationType = expectedInformationType;
 		this.parameterList = parameterList;
 	}
 
-	public InformationTypeDto getExptectedInformationType() {
-		return exptectedInformationType;
+	public InformationTypeDto getExpectedInformationType() {
+		return expectedInformationType;
 	}
 
-	public void setExptectedInformationType(InformationTypeDto exptectedInformationType) {
-		this.exptectedInformationType = exptectedInformationType;
+	public void setExpectedInformationType(InformationTypeDto expectedInformationType) {
+		this.expectedInformationType = expectedInformationType;
 	}
 
 	public ParameterListDto getParameterList() {
