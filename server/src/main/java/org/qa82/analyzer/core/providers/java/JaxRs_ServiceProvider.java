@@ -41,7 +41,7 @@ public class JaxRs_ServiceProvider extends AbstractInformationProvider {
 
     @Override
     public InformationNeedDescription getProvidedInformation() {
-		return new InformationNeedDescription(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service"), new ParametersTypes());
+		return new InformationNeedDescription(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service",this.getDescription()), new ParametersTypes());
     }
 
     @Override
