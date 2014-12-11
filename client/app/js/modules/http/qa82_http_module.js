@@ -16,6 +16,20 @@ httpModule.service('httpService', function($http, base_url) {
                 }
             });
     }
+
+    this.httpPost = function(path, msg, successCallback, errorCallback) {
+        $http.post(base_url + path, msg).
+            success(function(data, status) {
+                if(successCallback != undefined) {
+                    successCallback(data, status);
+                }
+            }).
+            error(function(data, status) {
+                if(errorCallback != undefined) {
+                    errorCallback(data, status);
+                }
+            });
+    }
 });
 
 
