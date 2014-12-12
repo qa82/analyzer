@@ -27,8 +27,7 @@ public class EmptyInformation implements Information {
 	}
 
 	@Override
-	public Boolean isInformationPresent() {
-		return false;
+	public String getName() {
+		return null;
 	}
-
 }

@@ -22,9 +22,12 @@ public class BooleanInformation extends AbstractInformation {
 
 	private Boolean value;
 
-	public BooleanInformation(Boolean value) {
+	private String name;
+
+	public BooleanInformation(String name, Boolean value) {
 		super(/* type is */"boolean");
-		this.value = value;
+		this.setValue(value);
+		this.setName(name);
 	}
 	
 	public void setValue(Boolean value) {
@@ -36,4 +39,12 @@ public class BooleanInformation extends AbstractInformation {
 		return value;
 	}
 
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

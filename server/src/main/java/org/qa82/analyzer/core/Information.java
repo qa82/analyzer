@@ -29,17 +29,18 @@ public interface Information {
 	public String getType();
 
 	/**
+	 * Getter for the name of the information
+	 *
+	 * @return the information name
+	 */
+
+	public String getName();
+
+	/**
 	 * Getter for the value of the information.
-	 * 
+	 *
 	 * @return the information value
 	 */
 	public Object getValue();
-
-	/**
-	 * Can be used to determine if a value is present or null.
-	 * 
-	 * @return true if value is not null
-	 */
-	public Boolean isInformationPresent();
 
 }

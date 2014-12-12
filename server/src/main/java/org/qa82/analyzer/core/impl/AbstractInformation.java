@@ -27,11 +27,6 @@ public abstract class AbstractInformation implements Information {
 		return type;
 	}
 
-	@Override
-	public Boolean isInformationPresent() {
-		return getValue() != null;
-	}
-
 	public void setType(String type) {
 		this.type = type;
 	}
