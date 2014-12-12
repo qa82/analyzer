@@ -22,6 +22,8 @@ import java.util.Set;
  */
 public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
 
+    private final String INFORMATION_NAME = "name";
+
     private JaxRs_Compatibility parser;
 
     public JaxRs_ServiceNameProvider(Analyzer analyzer) {
@@ -55,7 +57,7 @@ public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
             for (File javaFile : r.searchFileEndingWith("java")) {
                 parser.parseFile(javaFile);
                 if(parser.isFileAJaxRsClass()) {
-                    informationList.add(new Element(new Integer(id).toString()));
+                    informationList.add(new Element(this.INFORMATION_NAME, new Integer(id).toString()));
                     id++;
                 }
             }
