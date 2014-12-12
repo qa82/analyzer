@@ -32,7 +32,7 @@ public class InformationResource extends AbstractResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public AnalyzerResultDto resolveInformationNeed(InformationNeedDto informationNeed) {
 		try {
-			InformationType expectedInformationType = informationNeed.getExptectedInformationType().convertToInformationType();
+			InformationType expectedInformationType = informationNeed.getExpectedInformationType().convertToInformationType();
 			ParameterList parameterList = informationNeed.getParameterList().convertToParameterList();
 			AnalyzerResult result = analyzer.resolve(expectedInformationType, parameterList);
 
