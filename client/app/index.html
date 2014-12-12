@@ -164,10 +164,10 @@
                                 <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> Help<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="flot.html">API</a>
+                                        <a href="#">API</a>
                                     </li>
                                     <li>
-                                        <a href="morris.html">Documentation</a>
+                                        <a href="#">Documentation</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -202,19 +202,13 @@
                                 <div class="panel-body">
                                     <table class="table table-striped">
                                         <thead>
-                                            <tr>
-                                                <th>source</th>
-                                                <th>name</th>
+                                        <tr ng-repeat="column in columns">
+                                            <th>{{column}}</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody ng-repeat="row in rows">
                                         <tr>
-                                            <td>test2</td>
-                                            <td>test3</td>
-                                        </tr>
-                                        <tr>
-                                            <td>test2</td>
-                                            <td>test3</td>
+                                            <td>{{row.value}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
