@@ -56,6 +56,7 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
      * @param file The File that should be parsed
      */
     public void parseFile(File file) {
+        this.clean();
         this.iterateOverAllLinesOfFile(file);
     }
 
@@ -64,6 +65,16 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
      */
     public JaxRs_Parser() {
         this.supportedMethods = new ArrayList<>();
+    }
+
+
+    /**
+     * This method cleans the results of the latest parsed file
+     */
+    private void clean() {
+        this.setResourceName(null);
+        this.setClassName(null);
+        this.setSupportedMethods(new ArrayList<HTTPMethods>());
     }
 
     /**
@@ -163,8 +174,8 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
         this.className = className;
     }
 
-/*    public static void main (String[] args) {
-        Jersey_JaxRS_Parser parser = new Jersey_JaxRS_Parser();
-        parser.parseFile(new File("/Users/pascalgiessler/Developer/KIT/analyzer/server/src/test/java/org/qa82/analyzer/core/providers/java/parser/jaxrs/JerseyParserTestFile.java"));
-    }*/
+    private void setSupportedMethods(ArrayList<HTTPMethods> supportedMethods) {
+        this.supportedMethods = supportedMethods;
+    }
+
 }
