@@ -202,13 +202,13 @@
                                 <div class="panel-body">
                                     <table class="table table-striped">
                                         <thead>
-                                        <tr ng-repeat="column in columns">
-                                            <th>{{column}}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody ng-repeat="row in rows">
                                         <tr>
-                                            <td>{{row.value}}</td>
+                                            <th ng-repeat="column in columns">{{column}}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="row in rows">
+                                            <td ng-repeat="rowData in row">{{rowData.value}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
