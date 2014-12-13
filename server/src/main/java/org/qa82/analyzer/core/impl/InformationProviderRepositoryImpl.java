@@ -15,6 +15,7 @@ package org.qa82.analyzer.core.impl;
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.InformationProviderRepository;
+import org.qa82.analyzer.core.providers.java.JaxRs_ServiceNameProvider;
 import org.qa82.analyzer.core.providers.java.JaxRs_ServiceProvider;
 
 import java.util.HashSet;
@@ -26,6 +27,7 @@ public class InformationProviderRepositoryImpl implements InformationProviderRep
 	
 	public InformationProviderRepositoryImpl(Analyzer analyzer) {
 		informationProviders.add(new JaxRs_ServiceProvider(analyzer));
+		informationProviders.add(new JaxRs_ServiceNameProvider(analyzer));
 	}
 	
 	/* (non-Javadoc)

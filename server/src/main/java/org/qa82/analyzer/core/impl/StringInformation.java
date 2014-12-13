@@ -36,7 +36,7 @@ public class StringInformation extends AbstractInformation {
 
 	@Override
 	public String getName() {
-		return null;
+		return name;
 	}
 
 	public void setValue(String value) {

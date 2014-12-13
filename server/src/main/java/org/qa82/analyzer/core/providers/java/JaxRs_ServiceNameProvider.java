@@ -9,6 +9,7 @@ import org.qa82.analyzer.core.bean.ParameterList;
 import org.qa82.analyzer.core.bean.ParametersTypes;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.StringInformation;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Compatibility;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Parser;
 
@@ -44,12 +45,11 @@ public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
     @Override
     public InformationNeedDescription getProvidedInformation() {
         return new InformationNeedDescription(new InformationType(
-                Element.class, "http://cos.ontoware.org/cos#web-service",this.getDescription()), new ParametersTypes());
+                Element.class, "http://cos.ontoware.org/cos#web-service#name", this.getDescription()), new ParametersTypes());
     }
 
     @Override
     public List<Information> resolve(InformationType expectedInformation,  ParameterList parameters) {
-        int id = 0;
         ArrayList<Information> informationList = new ArrayList<>();
 
         Set<Repository> repositories = this.analyzer.getProject().getRepositories();
@@ -57,8 +57,7 @@ public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
             for (File javaFile : r.searchFileEndingWith("java")) {
                 parser.parseFile(javaFile);
                 if(parser.isFileAJaxRsClass()) {
-                    informationList.add(new Element(this.INFORMATION_NAME, new Integer(id).toString()));
-                    id++;
+                    informationList.add(new StringInformation(this.INFORMATION_NAME, parser.getResourceName()));
                 }
             }
         }
