@@ -10,21 +10,16 @@ qa82analyzer.controller('QA82_ResultController', function ($scope) {
     $scope.columns = [];
     $scope.rows = [];
 
-
     $scope.$on('resultAvailableEvent', function(event, args) {
+        this.clearPreviousResult();
         $scope.resultAvailable = true;
-
-        if ($scope.rows.length == 0) {
-            for (index in args.information) {
-                $scope.rows[index] = [];
-            }
-        }
-
-        if (args.information.length > 0) {
-            $scope.columns.push(args.information[0].name);
-            for (index in args.information) {
-                $scope.rows[index].push(args.information[index]);
-            }
-        }
+        $scope.columns.push(args.informationType);
+        $scope.rows = args.information;
     });
+
+    clearPreviousResult = function() {
+        $scope.resultAvailable = false;
+        $scope.columns = [];
+        $scope.rows = [];
+    }
 });
