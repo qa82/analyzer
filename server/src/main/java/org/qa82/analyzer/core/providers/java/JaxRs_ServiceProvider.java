@@ -1,5 +1,10 @@
 package org.qa82.analyzer.core.providers.java;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Repository;
@@ -12,17 +17,11 @@ import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Compatibility;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Parser;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 /**
  * Created by Pascal Giessler on 10.12.2014.
  */
 public class JaxRs_ServiceProvider extends AbstractInformationProvider {
 
-    private final String INFORMATION_NAME = "Identifier";
     private JaxRs_Compatibility parser;
 
     public JaxRs_ServiceProvider(Analyzer analyzer) {
@@ -46,7 +45,7 @@ public class JaxRs_ServiceProvider extends AbstractInformationProvider {
     }
 
     @Override
-    public List<Information> resolve(InformationType expectedInformation, ParameterList parameters) {
+	public List<Information> resolve(InformationType expectedInformation, ParameterList parameters) {
         int id = 0;
         ArrayList<Information> informationList = new ArrayList<>();
 
@@ -55,11 +54,11 @@ public class JaxRs_ServiceProvider extends AbstractInformationProvider {
             for (File javaFile : r.searchFileEndingWith("java")) {
                 parser.parseFile(javaFile);
                 if(parser.isFileAJaxRsClass()) {
-                    informationList.add(new Element(this.INFORMATION_NAME, new Integer(id).toString()));
+                    informationList.add(new Element(new Integer(id).toString()));
                     id++;
                 }
             }
         }
-        return informationList;
+		return informationList;
     }
 }

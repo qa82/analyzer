@@ -25,9 +25,4 @@ public class EmptyInformation implements Information {
 	public Object getValue() {
 		return null;
 	}
-
-	@Override
-	public String getName() {
-		return null;
-	}
 }

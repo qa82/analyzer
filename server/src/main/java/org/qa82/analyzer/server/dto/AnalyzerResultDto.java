@@ -1,9 +1,9 @@
 package org.qa82.analyzer.server.dto;
 
-import org.qa82.analyzer.core.AnalyzerResult;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.qa82.analyzer.core.AnalyzerResult;
 
 public class AnalyzerResultDto {
 
@@ -20,7 +20,7 @@ public class AnalyzerResultDto {
 
 	public AnalyzerResultDto(AnalyzerResult result) {
 		result.getInformation().forEach((information) -> {
-			this.information.add(new InformationDto(null, information.getName(), information.getValue().toString()));
+			this.information.add(new InformationDto(null, information.getValue().toString()));
 		});
 	}
 

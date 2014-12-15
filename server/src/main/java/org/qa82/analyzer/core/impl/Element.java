@@ -26,17 +26,14 @@ public class Element extends AbstractInformation {
 	 */
 	private String id;
 
-	private String name;
-
 	/**
 	 * A new element with default type "element".
 	 * 
 	 * @param id {@link #id}
 	 */
-	public Element(String name, String id) {
+	public Element(String id) {
 		super(/* type is */"element");
 		this.id = id;
-		this.name = name;
 	}
 
 	/**
@@ -45,10 +42,9 @@ public class Element extends AbstractInformation {
 	 * @param id {@link #id}
 	 * @param type {@link #type}
 	 */
-	public Element(String id, String name, String type) {
+	public Element(String id, String type) {
 		super(/* type is */type);
 		this.id = id;
-		this.name = name;
 	}
 
 	public void setId(String id) {
@@ -62,10 +58,5 @@ public class Element extends AbstractInformation {
 	@Override
 	public Object getValue() {
 		return getId();
-	}
-
-	@Override
-	public String getName() {
-		return this.name;
 	}
 }

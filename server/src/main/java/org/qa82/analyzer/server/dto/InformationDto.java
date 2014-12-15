@@ -5,8 +5,6 @@ public class InformationDto {
 
 	private InformationTypeDto informationType;
 
-	private String name;
-
 	private String value;
 
 	/**
@@ -16,10 +14,9 @@ public class InformationDto {
 		super();
 	}
 
-	public InformationDto(InformationTypeDto informationType, String name, String value) {
+	public InformationDto(InformationTypeDto informationType, String value) {
 		super();
 		this.setInformationType(informationType);
-		this.setName(name);
 		this.setValue(value);
 	}
 
@@ -37,13 +34,5 @@ public class InformationDto {
 
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 }

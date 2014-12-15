@@ -19,13 +19,10 @@ package org.qa82.analyzer.core.impl;
  */
 public class StringInformation extends AbstractInformation {
 
-
-	private String name;
 	private String value;
 
-	public StringInformation(String name, String value) {
+	public StringInformation(String value) {
 		super(/* type is */"string");
-		this.setName(name);
 		this.setValue(value);
 	}
 
@@ -34,16 +31,7 @@ public class StringInformation extends AbstractInformation {
 		return value;
 	}
 
-	@Override
-	public String getName() {
-		return name;
-	}
-
 	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 }
