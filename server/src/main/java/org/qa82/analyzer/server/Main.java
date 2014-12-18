@@ -24,21 +24,21 @@ import org.glassfish.jersey.server.ResourceConfig;
  *
  */
 public class Main {
-    // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/analyzer-test/";
 
+    private static String uri = null;
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
      */
-    public static HttpServer startServer() {
+    public static HttpServer startServer(String port) {
         // create a resource config that scans for JAX-RS resources and providers in qa82 package
         final ResourceConfig rc = new ResourceConfig().packages("org.qa82.analyzer.server");
         rc.register(org.qa82.analyzer.server.ResponseContainerCorsFilter.class);
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
-		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+        uri = "http://localhost:" + port + "/analyzer-test/";
+		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(uri), rc);
 		return server;
     }
 
@@ -48,11 +48,15 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        final HttpServer server = startServer();
+        String port = "8080";
+        if(args.length > 0 ){
+            port = args[0];
+        }
+
+        final HttpServer server = startServer(port);
         System.out.println(String.format("Jersey app started with WADL available at "
-                + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
+                + "%sapplication.wadl\nHit enter to stop it...", uri));
         System.in.read();
         server.shutdownNow();
     }
 }
-
