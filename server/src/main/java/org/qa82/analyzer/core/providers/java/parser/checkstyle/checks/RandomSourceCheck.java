@@ -5,11 +5,17 @@ import com.puppycrawl.tools.checkstyle.api.Check;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 
+import javax.management.RuntimeErrorException;
 import java.io.File;
 import java.util.Collection;
 
 import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
 
+/**
+ * An exemplary Checkstyle-Check searching for usages of cryptographic weak pseudo-random number generators.
+ *
+ * @author Max Vogler, Karlsruhe Institute of Technology, Germany
+ */
 public class RandomSourceCheck extends Check {
 
     private static final Collection<String> UNSAFE_TYPES = Lists.newArrayList(
@@ -30,25 +36,41 @@ public class RandomSourceCheck extends Check {
 
     @Override
     public void visitToken(DetailAST ast) {
-        FullIdent imp = null;
+        FullIdent type = null;
 
         switch (ast.getType()) {
             case IMPORT:
             case METHOD_CALL:
             case LITERAL_NEW:
-                imp = FullIdent.createFullIdentBelow(ast);
+                type = FullIdent.createFullIdentBelow(ast);
                 break;
 
             case STATIC_IMPORT:
-                imp = FullIdent.createFullIdent(ast.getFirstChild().getNextSibling());
+                type = FullIdent.createFullIdent(ast.getFirstChild().getNextSibling());
                 break;
+
+            default:
+                throw new RuntimeException("Invalid AST type: " + ast.getType());
         }
 
-        // debug(ast, imp, isUnsafeType(imp.getText()));
+        // debug(ast, imp, isUnsafeType(type));
 
-        if (isUnsafeType(imp.getText())) {
-            log(ast.getLineNo(), ast.getColumnNo(), MESSAGE, imp.getText());
+        if (isUnsafeType(type)) {
+            log(ast.getLineNo(), ast.getColumnNo(), MESSAGE, type.getText());
         }
+    }
+
+    protected boolean isUnsafeType(FullIdent type) {
+        return getUnsafeTypes().stream().anyMatch(type.getText()::startsWith);
+    }
+
+    protected Collection<String> getUnsafeTypes() {
+        return UNSAFE_TYPES;
+    }
+
+    @Override
+    public int[] getDefaultTokens() {
+        return DEFAULT_TOKENS;
     }
 
     protected void debug(DetailAST ast, FullIdent fi, boolean illegal) {
@@ -61,19 +83,6 @@ public class RandomSourceCheck extends Check {
         }
 
         System.out.println(desc);
-    }
-
-    protected boolean isUnsafeType(String imported) {
-        return getUnsafeTypes().stream().anyMatch(imported::startsWith);
-    }
-
-    protected Collection<String> getUnsafeTypes() {
-        return UNSAFE_TYPES;
-    }
-
-    @Override
-    public int[] getDefaultTokens() {
-        return DEFAULT_TOKENS;
     }
 
 }
