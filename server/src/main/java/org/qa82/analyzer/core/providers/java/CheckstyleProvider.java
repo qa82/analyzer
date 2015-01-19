@@ -6,14 +6,14 @@ import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.bean.InformationNeedDescription;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
-import org.qa82.analyzer.core.bean.ParametersTypes;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
+import org.qa82.analyzer.core.impl.CodeRelatedInformation;
 import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.impl.StringInformation;
-import org.qa82.analyzer.core.impl.CodeRelatedInformation;
 import org.qa82.analyzer.core.providers.java.parser.checkstyle.CheckstyleParser;
 import org.qa82.analyzer.core.providers.java.parser.checkstyle.checks.RandomSourceCheck;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,12 +30,12 @@ public class CheckstyleProvider extends AbstractInformationProvider {
 
     @Override
     public String getName() {
-        return "Static code analysis (using Checkstyle)";
+        return "StaticCodeAnalysis.Checkstyle";
     }
 
     @Override
     public String getDescription() {
-        return "Get information about the code quality (Checkstyle).";
+        return "StaticCodeAnalysis.Checkstyle";
     }
 
     @Override
@@ -60,11 +60,14 @@ public class CheckstyleProvider extends AbstractInformationProvider {
     public InformationNeedDescription getProvidedInformation() {
         // TODO: Provide correct InformationNeedDescription
 
-        return new InformationNeedDescription(new InformationType(
-                Element.class,
-                "http://cos.ontoware.org/cos#checkstyle",
-                this.getDescription()),
-                new ParametersTypes()
+        return new InformationNeedDescription(
+                new InformationType(
+                        Element.class,
+                        "http://cos.ontoware.org/cos#checkstyle",
+                        this.getDescription()
+                ),
+                
+                Collections.emptyList()
         );
     }
 
