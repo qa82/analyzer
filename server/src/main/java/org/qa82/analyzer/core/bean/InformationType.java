@@ -13,6 +13,7 @@
 package org.qa82.analyzer.core.bean;
 
 import org.qa82.analyzer.core.Information;
+import org.qa82.analyzer.server.dto.InformationTypeDto;
 
 /**
  * Defines a type of information. Can be used to define the information expected from the analyzer or information provider. By default a
@@ -42,6 +43,10 @@ public class InformationType {
 		this.setDescription(description);
 	}
 
+	public InformationType(InformationTypeDto dto) {
+		this(dto.getClassType(), dto.getType(), dto.getDescription());
+	}
+
 	public Class<? extends Information> getClassType() {
 		return classType;
 	}
@@ -64,5 +69,16 @@ public class InformationType {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj) return true;
+		if(obj == null) return false;
+		if(!(obj instanceof InformationType)) return false;
+		InformationType givenObject = (InformationType) obj;
+		return (this.getClassType().equals(givenObject.getClassType()) &&
+				this.getType().equalsIgnoreCase(givenObject.getType()) &&
+				this.getDescription().equalsIgnoreCase(givenObject.getDescription()));
 	}
 }

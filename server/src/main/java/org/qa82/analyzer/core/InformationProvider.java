@@ -12,12 +12,11 @@
 
 package org.qa82.analyzer.core;
 
-import java.util.List;
-
 import org.qa82.analyzer.core.bean.InformationNeedDescription;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
-import org.qa82.analyzer.core.bean.ParametersTypes;
+
+import java.util.List;
 
 /**
  * An information provider can resolve an information need for a certain software. Information provider can be separated into technology
@@ -32,7 +31,7 @@ public interface InformationProvider {
 	
 	public String getDescription();
 
-	public Boolean provides(InformationType expectedInformation, ParametersTypes parameters);
+	public Boolean provides(InformationType expectedInformation, List<InformationType> parameters);
 
 	public List<Information> resolve(InformationType expectedInformation, ParameterList parameters);
 
