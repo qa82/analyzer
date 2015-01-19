@@ -36,7 +36,7 @@ public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
 
 	@Override
 	public String getDescription() {
-		return "Get the name of available JAX-RS services";
+		return "JaxRs.ServiceName";
 	}
 
 	@Override

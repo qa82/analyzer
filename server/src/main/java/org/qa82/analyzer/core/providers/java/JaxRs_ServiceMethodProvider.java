@@ -32,7 +32,7 @@ public class JaxRs_ServiceMethodProvider extends AbstractInformationProvider {
 
 	@Override
 	public String getDescription() {
-		return "Get the methods of a specified JAX-RS service in the current repository";
+		return "JaxRs.Service.Method";
 	}
 
 	@Override

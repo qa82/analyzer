@@ -35,12 +35,12 @@ public class JaxRs_ServiceProvider extends AbstractInformationProvider {
 
     @Override
     public String getDescription() {
-        return "Get available JAX-RS services of specified repositories";
+        return "JaxRs.Service";
     }
 
     @Override
     public InformationNeedDescription getProvidedInformation() {
-		return new InformationNeedDescription(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service",this.getName()), new ArrayList<>());
+		return new InformationNeedDescription(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service",this.getDescription()), new ArrayList<>());
     }
 
     @Override
