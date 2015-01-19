@@ -15,7 +15,8 @@ package org.qa82.analyzer.core.impl;
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.bean.InformationType;
-import org.qa82.analyzer.core.bean.ParametersTypes;
+
+import java.util.List;
 
 /**
  * Offers a default implementation InformationProviders using the annotations @ProvidedFunction and @Parameter.
@@ -32,7 +33,7 @@ public abstract class AbstractInformationProvider implements InformationProvider
 	@Override
 	//TODO: Constraint need to be fixed
 	public Boolean provides(InformationType expectedInformation,
- ParametersTypes parameters) {
+ List<InformationType> parameters) {
 		if (expectedInformation == null) {
 			return false;
 		}
@@ -40,7 +41,7 @@ public abstract class AbstractInformationProvider implements InformationProvider
 	}
 
 	protected Boolean isInformationneedEqual(InformationType expectedInformation,
- ParametersTypes parameters) {
+ List<InformationType> parameters) {
 		boolean isEqualClassType = getProvidedInformation().getExpectedInformationType().getClassType().equals(expectedInformation.getClassType());
 		boolean isEqualType = getProvidedInformation().getExpectedInformationType().getType().equals(expectedInformation.getType());
 		return isEqualClassType && isEqualType;

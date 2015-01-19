@@ -11,11 +11,10 @@
  *******************************************************************************/
 package org.qa82.analyzer.server.dto;
 
+import org.qa82.analyzer.core.bean.InformationNeedDescription;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.qa82.analyzer.core.bean.InformationNeedDescription;
-import org.qa82.analyzer.core.bean.ParametersTypes;
 
 public class InformationNeedDescriptionDto {
 
@@ -43,13 +42,6 @@ public class InformationNeedDescriptionDto {
 		setParametersTypes(informationTypeDtos);
 	}
 
-	public InformationNeedDescription convertToInformationNeed() {
-		ParametersTypes parametersTypes = new ParametersTypes();
-		getParametersTypes().forEach((type) -> parametersTypes.add(type.convertToInformationType()));
-		InformationNeedDescription informationNeed = new InformationNeedDescription(getExpectedInformationType().convertToInformationType(), parametersTypes);
-		return informationNeed;
-	}
-
 	public InformationTypeDto getExpectedInformationType() {
 		return expectedInformationType;
 	}
@@ -58,11 +50,9 @@ public class InformationNeedDescriptionDto {
 		return parametersTypes;
 	}
 
-
 	public void setExpectedInformationType(InformationTypeDto expectedInformationType) {
 		this.expectedInformationType = expectedInformationType;
 	}
-
 	public void setParametersTypes(List<InformationTypeDto> parametersTypes) {
 		this.parametersTypes = parametersTypes;
 	}

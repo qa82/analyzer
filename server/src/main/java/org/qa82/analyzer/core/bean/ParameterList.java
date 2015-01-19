@@ -30,8 +30,8 @@ public class ParameterList extends ArrayList<Information> {
 
 	private static final long serialVersionUID = 3013857040435548110L;
 
-	public ParametersTypes getTypes() {
-		ParametersTypes parametersTypes = new ParametersTypes();
+	public List<InformationType> getTypes() {
+		List<InformationType> parametersTypes = new ArrayList<>();
 		this.forEach((information) -> parametersTypes.add(new InformationType(information.getClass(), information.getType(), "")));
 		return parametersTypes;
 	}

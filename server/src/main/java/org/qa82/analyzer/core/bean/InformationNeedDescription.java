@@ -63,16 +63,15 @@ public class InformationNeedDescription {
 		return isInformationExpectedEqual(givenInformationNeedDescription) && areParameterTypesEqual(givenInformationNeedDescription);
 	}
 
-	private boolean isInformationExpectedEqual(InformationNeedDescription informationNeedDesc) {
+	public boolean isInformationExpectedEqual(InformationNeedDescription informationNeedDesc) {
 		return expectedInformationType.equals(informationNeedDesc.getExpectedInformationType());
-
 	}
 
 	private boolean isParameterSizeEqual(InformationNeedDescription informationNeedDesc) {
 		return (informationNeedDesc.getParametersTypes().size() == this.getParametersTypes().size());
 	}
 
-	private boolean areParameterTypesEqual(InformationNeedDescription informationNeedDesc) {
+	public boolean areParameterTypesEqual(InformationNeedDescription informationNeedDesc) {
 		if(!isParameterSizeEqual(informationNeedDesc)) {
 			return false;
 		}

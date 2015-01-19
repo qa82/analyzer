@@ -1,10 +1,5 @@
 package org.qa82.analyzer.core.impl;
 
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,9 +12,14 @@ import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
-import org.qa82.analyzer.core.bean.ParametersTypes;
 import org.qa82.analyzer.core.bean.Project;
 import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleAnalyzerTest {
@@ -32,7 +32,7 @@ public class SimpleAnalyzerTest {
 	@Mock
 	private ParameterList parameters;
 	@Mock
-	private ParametersTypes parametersTypes;
+	private List<InformationType> parametersTypes;
 
 	@Before
 	public void setUp() throws Exception {

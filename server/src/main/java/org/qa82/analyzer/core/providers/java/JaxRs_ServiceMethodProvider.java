@@ -1,21 +1,20 @@
 package org.qa82.analyzer.core.providers.java;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.Repository;
 import org.qa82.analyzer.core.bean.InformationNeedDescription;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
-import org.qa82.analyzer.core.bean.ParametersTypes;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Compatibility;
 import org.qa82.analyzer.core.providers.java.parser.jaxrs.JaxRs_Parser;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class JaxRs_ServiceMethodProvider extends AbstractInformationProvider {
 
@@ -70,7 +69,7 @@ public class JaxRs_ServiceMethodProvider extends AbstractInformationProvider {
 
 	@Override
 	public InformationNeedDescription getProvidedInformation() {
-		ParametersTypes parametersTypes = new ParametersTypes();
+		List<InformationType> parametersTypes = new ArrayList<>();
 		parametersTypes.add(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service", "JaxRs.Service"));
 		InformationType informationType = new InformationType(Element.class, "http://cm.tm.kit.edu/ws#method", getDescription());
 		return new InformationNeedDescription(informationType, parametersTypes);

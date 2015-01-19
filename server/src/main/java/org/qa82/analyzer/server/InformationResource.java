@@ -53,20 +53,6 @@ public class InformationResource extends AbstractResource {
 		}
 	}
 
-	@GET
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public InformationNeedDto doSomething() {
-
-		InformationType t = new InformationType(Element.class,"bla","bla2");
-		InformationDto t2 = new InformationDto(new InformationTypeDto(t), "hallo");
-		ArrayList<InformationDto> t3 = new ArrayList<InformationDto>();
-		t3.add(t2);
-		//t3.add(t2);
-		//return p;
-		return new InformationNeedDto(new InformationTypeDto(t), t3);
-	}
-
 	private AnalyzerResultDto handleAnalyzerException(Throwable e) {
 		e.printStackTrace();
 		return new AnalyzerResultDto();

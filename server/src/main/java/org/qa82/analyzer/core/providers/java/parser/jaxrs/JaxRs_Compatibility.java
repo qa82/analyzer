@@ -1,7 +1,8 @@
 package org.qa82.analyzer.core.providers.java.parser.jaxrs;
 
-import java.util.ArrayList;
 import org.qa82.analyzer.core.providers.java.parser.Parser;
+
+import java.util.ArrayList;
 
 /**
  * This interface represents the method definitions, which should be implemented in any JAX RS parser

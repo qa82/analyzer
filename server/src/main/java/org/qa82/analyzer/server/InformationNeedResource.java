@@ -14,13 +14,12 @@ package org.qa82.analyzer.server;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.qa82.analyzer.core.bean.InformationNeedDescription;
 import org.qa82.analyzer.server.dto.InformationNeedDescriptionDto;
+import org.qa82.analyzer.server.dto.InformationNeedDto;
 
 @Path("informationneeds")
 public class InformationNeedResource extends AbstractResource {
@@ -32,7 +31,25 @@ public class InformationNeedResource extends AbstractResource {
 		
 		Set<InformationNeedDescription> providedInformationNeeds = new HashSet<InformationNeedDescription>();
 
-		analyzer.getInformationProviders().forEach(
+		analyzer.getInformationProviders().stream().filter(provider -> provider.getProvidedInformation().getParametersTypes().size() == 0).forEach(
+				(provider) -> providedInformationNeeds.add(provider
+						.getProvidedInformation()));
+
+		Set<InformationNeedDescriptionDto> providedInformationNeedDtos = new HashSet<InformationNeedDescriptionDto>();
+		providedInformationNeeds.forEach((need) -> providedInformationNeedDtos.add(new InformationNeedDescriptionDto(need)));
+		return providedInformationNeedDtos;
+	}
+
+	@Path("provided")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<InformationNeedDescriptionDto> getProvidedInformation(InformationNeedDescriptionDto informationNeedDescriptionDto) {
+
+		InformationNeedDescription givenInformationNeedDescription = new InformationNeedDescription(informationNeedDescriptionDto);
+		Set<InformationNeedDescription> providedInformationNeeds = new HashSet<InformationNeedDescription>();
+
+		analyzer.getInformationProviders().stream().filter(provider -> provider.getProvidedInformation().areParameterTypesEqual(givenInformationNeedDescription)).forEach(
 				(provider) -> providedInformationNeeds.add(provider
 						.getProvidedInformation()));
 
