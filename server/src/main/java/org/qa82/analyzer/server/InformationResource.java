@@ -15,16 +15,15 @@ package org.qa82.analyzer.server;
 import org.qa82.analyzer.core.AnalyzerResult;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
-import org.qa82.analyzer.server.dto.AnalyzerResultDto;
-import org.qa82.analyzer.server.dto.InformationNeedDto;
-import org.qa82.analyzer.server.dto.InformationTypeDto;
-import org.qa82.analyzer.server.dto.ParameterListDto;
+import org.qa82.analyzer.core.impl.AbstractInformation;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.server.dto.*;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("information")
 public class InformationResource extends AbstractResource {
@@ -35,14 +34,10 @@ public class InformationResource extends AbstractResource {
 	public AnalyzerResultDto resolveInformationNeed(InformationNeedDto informationNeed) {
 		try {
 			InformationTypeDto expectedInformationTypeDto = informationNeed.getExpectedInformationType();
-			ParameterListDto parameterListDto = informationNeed.getParameterList();
+			ArrayList<InformationDto> parameterListDto = informationNeed.getParameterList();
 
-			ParameterList parameterList = new ParameterList();
+			ParameterList parameterList = new ParameterList(parameterListDto);
 			InformationType expectedInformationType = new InformationType(null, "", "");
-
-			if (parameterListDto != null) {
-				parameterList = parameterListDto.convertToParameterList();
-			}
 
 			if (expectedInformationTypeDto != null) {
 				expectedInformationType = expectedInformationTypeDto.convertToInformationType();
@@ -56,6 +51,20 @@ public class InformationResource extends AbstractResource {
 		} catch (Throwable e) {
 			return handleAnalyzerException(e);
 		}
+	}
+
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public InformationNeedDto doSomething() {
+
+		InformationType t = new InformationType(Element.class,"bla","bla2");
+		InformationDto t2 = new InformationDto(new InformationTypeDto(t), "hallo");
+		ArrayList<InformationDto> t3 = new ArrayList<InformationDto>();
+		t3.add(t2);
+		//t3.add(t2);
+		//return p;
+		return new InformationNeedDto(new InformationTypeDto(t), t3);
 	}
 
 	private AnalyzerResultDto handleAnalyzerException(Throwable e) {

@@ -12,8 +12,13 @@
 package org.qa82.analyzer.core.bean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.qa82.analyzer.core.Information;
+import org.qa82.analyzer.core.impl.BooleanInformation;
+import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.StringInformation;
+import org.qa82.analyzer.server.dto.InformationDto;
 
 /**
  * A list of parameters represented by informations.
@@ -29,5 +34,24 @@ public class ParameterList extends ArrayList<Information> {
 		ParametersTypes parametersTypes = new ParametersTypes();
 		this.forEach((information) -> parametersTypes.add(new InformationType(information.getClass(), information.getType(), "")));
 		return parametersTypes;
+	}
+
+	public ParameterList(List<InformationDto> informationDtoList) {
+		super();
+		if(informationDtoList != null) {
+			informationDtoList.forEach((parameter) -> this.add(convert(parameter.getInformationType().getClassType(), parameter.getValue())));
+		}
+	}
+
+	private Information convert(Class<? extends Information> classType, String value) {
+		if (classType.equals(Element.class)) {
+			return new Element(value);
+		} else if (classType.equals(BooleanInformation.class)) {
+			return new BooleanInformation(Boolean.valueOf(value));
+		} else if (classType.equals(StringInformation.class)) {
+			return new StringInformation(value);
+		}
+		throw new RuntimeException("Cast of parameter failed. " + value + " can not be cast to " + classType + ".");
+
 	}
 }

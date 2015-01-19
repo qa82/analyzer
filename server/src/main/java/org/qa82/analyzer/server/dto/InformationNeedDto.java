@@ -1,11 +1,13 @@
 package org.qa82.analyzer.server.dto;
 
 
+import java.util.ArrayList;
+
 public class InformationNeedDto {
 
 	private InformationTypeDto expectedInformationType;
 
-	private ParameterListDto parameterList;
+	private ArrayList<InformationDto> parameterList;
 
 	/**
 	 * Empty constructor for serialization.
@@ -13,7 +15,7 @@ public class InformationNeedDto {
 	public InformationNeedDto() {
 	}
 
-	public InformationNeedDto(InformationTypeDto expectedInformationType, ParameterListDto parameterList) {
+	public InformationNeedDto(InformationTypeDto expectedInformationType,  ArrayList<InformationDto> parameterList) {
 		super();
 		this.expectedInformationType = expectedInformationType;
 		this.parameterList = parameterList;
@@ -27,11 +29,11 @@ public class InformationNeedDto {
 		this.expectedInformationType = expectedInformationType;
 	}
 
-	public ParameterListDto getParameterList() {
+	public  ArrayList<InformationDto> getParameterList() {
 		return parameterList;
 	}
 
-	public void setParameterList(ParameterListDto parameterList) {
+	public void setParameterList( ArrayList<InformationDto> parameterList) {
 		this.parameterList = parameterList;
 	}
 }

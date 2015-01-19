@@ -71,7 +71,7 @@ public class JaxRs_ServiceMethodProvider extends AbstractInformationProvider {
 	@Override
 	public InformationNeedDescription getProvidedInformation() {
 		ParametersTypes parametersTypes = new ParametersTypes();
-		parametersTypes.add(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service", "JaxRs.ServiceName"));
+		parametersTypes.add(new InformationType(Element.class, "http://cos.ontoware.org/cos#web-service", "JaxRs.Service"));
 		InformationType informationType = new InformationType(Element.class, "http://cm.tm.kit.edu/ws#method", getDescription());
 		return new InformationNeedDescription(informationType, parametersTypes);
 	}
