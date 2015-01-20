@@ -18,9 +18,7 @@ import java.util.Set;
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.InformationProvider;
 import org.qa82.analyzer.core.InformationProviderRepository;
-import org.qa82.analyzer.core.providers.java.JaxRs_ServiceMethodProvider;
-import org.qa82.analyzer.core.providers.java.JaxRs_ServiceNameProvider;
-import org.qa82.analyzer.core.providers.java.JaxRs_ServiceProvider;
+import org.qa82.analyzer.core.providers.java.*;
 
 public class InformationProviderRepositoryImpl implements InformationProviderRepository {
 
@@ -30,6 +28,7 @@ public class InformationProviderRepositoryImpl implements InformationProviderRep
 		informationProviders.add(new JaxRs_ServiceProvider(analyzer));
 		informationProviders.add(new JaxRs_ServiceNameProvider(analyzer));
 		informationProviders.add(new JaxRs_ServiceMethodProvider(analyzer));
+		informationProviders.add(new Security_WeakRandomSourceProvider(analyzer));
 	}
 	
 	/* (non-Javadoc)
