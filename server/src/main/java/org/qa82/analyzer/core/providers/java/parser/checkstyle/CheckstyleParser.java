@@ -79,6 +79,14 @@ public class CheckstyleParser implements Parser {
         }
     }
 
+    /**
+     * Returns the Checkstyle XML-configuration file, or <code>null</code> if the parser has not been configured.
+     * @return the configuration file
+     */
+    public File getConfigurationFile() {
+        return configurationFile;
+    }
+
     @Override
     public void parseFile(@NotNull File file) {
         Preconditions.checkNotNull(configurationFile, "CheckstyleParser.parseFile() requires a configuration! Use setConfigurationFile() or setConfiguration() to create one.");

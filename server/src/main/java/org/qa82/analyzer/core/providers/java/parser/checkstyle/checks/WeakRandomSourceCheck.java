@@ -16,7 +16,7 @@ import static com.puppycrawl.tools.checkstyle.api.TokenTypes.*;
  *
  * @author Max Vogler, Karlsruhe Institute of Technology, Germany
  */
-public class RandomSourceCheck extends Check {
+public class WeakRandomSourceCheck extends Check {
 
     private static final Collection<String> UNSAFE_TYPES = Lists.newArrayList(
             "java.util.Random",

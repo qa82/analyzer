@@ -1,19 +1,16 @@
 package org.qa82.analyzer.core.providers.java;
 
-import com.google.common.collect.Lists;
+import com.google.common.base.Preconditions;
 import org.qa82.analyzer.core.Analyzer;
 import org.qa82.analyzer.core.Information;
-import org.qa82.analyzer.core.bean.InformationNeedDescription;
 import org.qa82.analyzer.core.bean.InformationType;
 import org.qa82.analyzer.core.bean.ParameterList;
 import org.qa82.analyzer.core.impl.AbstractInformationProvider;
 import org.qa82.analyzer.core.impl.CodeRelatedInformation;
-import org.qa82.analyzer.core.impl.Element;
 import org.qa82.analyzer.core.impl.StringInformation;
 import org.qa82.analyzer.core.providers.java.parser.checkstyle.CheckstyleParser;
-import org.qa82.analyzer.core.providers.java.parser.checkstyle.checks.RandomSourceCheck;
 
-import java.util.Collections;
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,27 +19,20 @@ import java.util.stream.Collectors;
  *
  * @author Max Vogler, Karlsruhe Institute of Technology, Germany
  */
-public class CheckstyleProvider extends AbstractInformationProvider {
+public abstract class CheckstyleProvider extends AbstractInformationProvider {
 
     public CheckstyleProvider(Analyzer analyzer) {
         super(analyzer);
     }
 
     @Override
-    public String getName() {
-        return "StaticCodeAnalysis.Checkstyle";
-    }
-
-    @Override
-    public String getDescription() {
-        return "StaticCodeAnalysis.Checkstyle";
-    }
-
-    @Override
+    @Nonnull
     public List<Information> resolve(InformationType expectedInformation, ParameterList parameters) {
-        // TODO: Load configuration from ParameterList
-        CheckstyleParser parser = new CheckstyleParser();
-        parser.setConfiguration(Lists.newArrayList(RandomSourceCheck.class));
+        CheckstyleParser parser = createParser(expectedInformation, parameters);
+
+        Preconditions.checkNotNull(parser.getConfigurationFile(), "CheckstyleProvider.resolve() requires a configured parser. " +
+                "Override CheckstyleProvider.createParser() to call CheckstyleParser.setConfigurationFile() or " +
+                "CheckstyleParser.setConfiguration() to create a configuration.");
 
         // TODO: Add client support for CodeRelatedInformation
         return analyzer
@@ -56,19 +46,16 @@ public class CheckstyleProvider extends AbstractInformationProvider {
                 .collect(Collectors.toList()); // finally return the list of error strings
     }
 
-    @Override
-    public InformationNeedDescription getProvidedInformation() {
-        // TODO: Provide correct InformationNeedDescription
-
-        return new InformationNeedDescription(
-                new InformationType(
-                        Element.class,
-                        "http://cos.ontoware.org/cos#checkstyle",
-                        this.getDescription()
-                ),
-                
-                Collections.emptyList()
-        );
+    /**
+     * Create and configure a CheckstyleParser. Override this method to configure the CheckstyleParser.
+     *
+     * @param expectedInformation
+     * @param parameters
+     * @return a configured CheckstyleParser
+     */
+    @Nonnull
+    protected CheckstyleParser createParser(InformationType expectedInformation, ParameterList parameters) {
+        return new CheckstyleParser();
     }
 
 }
