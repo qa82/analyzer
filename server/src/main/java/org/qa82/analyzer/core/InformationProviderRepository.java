@@ -11,7 +11,7 @@
  *******************************************************************************/
 package org.qa82.analyzer.core;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * A repository of information providers.
@@ -21,8 +21,8 @@ import java.util.Set;
 public interface InformationProviderRepository {
 
 	public abstract void setInformationProviders(
-			Set<InformationProvider> informationProviders);
+			List<InformationProvider> informationProviders);
 
-	public abstract Set<InformationProvider> getInformationProviders();
+	public abstract List<InformationProvider> getInformationProviders();
 
 }
