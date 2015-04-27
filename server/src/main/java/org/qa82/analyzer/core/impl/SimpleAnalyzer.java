@@ -14,6 +14,8 @@ package org.qa82.analyzer.core.impl;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.qa82.analyzer.core.Analyzer;
@@ -33,7 +35,7 @@ import org.qa82.analyzer.core.exceptions.InformationNeedNotResolvableException;
  */
 public class SimpleAnalyzer implements Analyzer {
 
-	private Set<InformationProvider> providers = new HashSet<InformationProvider>();
+	private List<InformationProvider> providers = new LinkedList<InformationProvider>();
 	private Project project;
 
 	public SimpleAnalyzer(Project project) {
@@ -86,7 +88,7 @@ public class SimpleAnalyzer implements Analyzer {
 	 */
 	@Override
 	public void setProviders(Collection<InformationProvider> providers) {
-		this.providers = new HashSet<InformationProvider>(providers);
+		this.providers = new LinkedList<InformationProvider>(providers);
 	}
 
 	/*
@@ -107,7 +109,7 @@ public class SimpleAnalyzer implements Analyzer {
 	 * @see org.qa82.analyzer.core.impl.Analyzer#getInformationProviders()
 	 */
 	@Override
-	public Set<InformationProvider> getInformationProviders() {
+	public List<InformationProvider> getInformationProviders() {
 		return providers;
 	}
 }

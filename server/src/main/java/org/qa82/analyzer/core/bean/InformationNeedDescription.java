@@ -13,13 +13,11 @@
 package org.qa82.analyzer.core.bean;
 
 
-import com.google.common.collect.Sets;
-import com.google.common.primitives.Booleans;
-import org.qa82.analyzer.server.dto.InformationNeedDescriptionDto;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.qa82.analyzer.server.dto.InformationNeedDescriptionDto;
 
 /**
  * Represents a need for information. This includes the format of the expected

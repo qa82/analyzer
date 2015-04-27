@@ -17,6 +17,7 @@ import java.util.List;
 import org.qa82.analyzer.core.Information;
 import org.qa82.analyzer.core.impl.BooleanInformation;
 import org.qa82.analyzer.core.impl.Element;
+import org.qa82.analyzer.core.impl.FloatInformation;
 import org.qa82.analyzer.core.impl.StringInformation;
 import org.qa82.analyzer.server.dto.InformationDto;
 
@@ -50,6 +51,8 @@ public class ParameterList extends ArrayList<Information> {
 			return new BooleanInformation(Boolean.valueOf(value));
 		} else if (classType.equals(StringInformation.class)) {
 			return new StringInformation(value);
+		} else if (classType.equals(FloatInformation.class)) {
+			return new FloatInformation(Float.valueOf(value));
 		}
 		throw new RuntimeException("Cast of parameter failed. " + value + " can not be cast to " + classType + ".");
 
