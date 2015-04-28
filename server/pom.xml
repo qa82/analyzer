@@ -106,6 +106,12 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/edu.mit.jwi_2.3.3.jar</systemPath>
         </dependency>
+        <dependency>
+		 <groupId>org.apache.jena</groupId>
+		 <artifactId>apache-jena-libs</artifactId>
+		 <type>pom</type>
+		 <version>2.13.0</version>
+		</dependency>
     </dependencies>
 
     <properties>

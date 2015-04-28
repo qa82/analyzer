@@ -1,0 +1,552 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/pabu/ontologies/2014/10/qa4swo"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/pabu/ontologies/2014/10/qa4swo">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Annotation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Guideline"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HTTPMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MIMEType"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Metric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProgrammingLanguage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RESTElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ReferenceImplementation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Representation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Resource"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResponseStatusCode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftwareArchitecturalStyleElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftwareQualityRequirement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SourceCodeElement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Specification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StandardMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#affects"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#consumes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#defines"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#describes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBeenImplementedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasNegativeEffectOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPositiveEffectOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#implements"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isGuidelineFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isIndicatorFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#produces"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#replyWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#specifiedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#specifies"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#supports"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#verifies"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#URI"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#200"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#404"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#405"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#500"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#@GET"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#@POST"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#@Path"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CONNECT"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Compatibility"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DELETE"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Efficiency"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#FunctionalSuitability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GET"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HEAD"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JAX-RS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Java"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Jersey"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Maintainability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#OPTIONS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PATCH"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#POST"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PUT"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Portability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#REST"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Reliability"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Security"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TRACE"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Usability"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Annotation"/>
+        <Class IRI="#SourceCodeElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HTTPMethod"/>
+        <Class IRI="#StandardMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MIMEType"/>
+        <Class IRI="#Representation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RESTElement"/>
+        <Class IRI="#SoftwareArchitecturalStyleElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Representation"/>
+        <Class IRI="#RESTElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Resource"/>
+        <Class IRI="#RESTElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResponseStatusCode"/>
+        <Class IRI="#RESTElement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StandardMethod"/>
+        <Class IRI="#RESTElement"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#ResponseStatusCode"/>
+        <NamedIndividual IRI="#200"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ResponseStatusCode"/>
+        <NamedIndividual IRI="#404"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ResponseStatusCode"/>
+        <NamedIndividual IRI="#405"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ResponseStatusCode"/>
+        <NamedIndividual IRI="#500"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Annotation"/>
+        <NamedIndividual IRI="#@GET"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Annotation"/>
+        <NamedIndividual IRI="#@POST"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Annotation"/>
+        <NamedIndividual IRI="#@Path"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#CONNECT"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Compatibility"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#DELETE"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Efficiency"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#FunctionalSuitability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#GET"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#HEAD"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Specification"/>
+        <NamedIndividual IRI="#JAX-RS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ProgrammingLanguage"/>
+        <NamedIndividual IRI="#Java"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ReferenceImplementation"/>
+        <NamedIndividual IRI="#Jersey"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Maintainability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#OPTIONS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#PATCH"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#POST"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#PUT"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Portability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+        <NamedIndividual IRI="#REST"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Reliability"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Security"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#HTTPMethod"/>
+        <NamedIndividual IRI="#TRACE"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SoftwareQualityRequirement"/>
+        <NamedIndividual IRI="#Usability"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#specifies"/>
+        <NamedIndividual IRI="#JAX-RS"/>
+        <NamedIndividual IRI="#REST"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
+        <NamedIndividual IRI="#Jersey"/>
+        <NamedIndividual IRI="#Java"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#implements"/>
+        <NamedIndividual IRI="#Jersey"/>
+        <NamedIndividual IRI="#JAX-RS"/>
+    </ObjectPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasBeenImplementedBy"/>
+        <ObjectProperty IRI="#implements"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#specifiedBy"/>
+        <ObjectProperty IRI="#specifies"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#affects"/>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#consumes"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#defines"/>
+        <Class IRI="#ReferenceImplementation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#describes"/>
+        <Class IRI="#SourceCodeElement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBeenImplementedBy"/>
+        <Class IRI="#Specification"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
+        <Class IRI="#ReferenceImplementation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasNegativeEffectOn"/>
+        <Class IRI="#Guideline"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPositiveEffectOn"/>
+        <Class IRI="#Guideline"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#implements"/>
+        <Class IRI="#ReferenceImplementation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isGuidelineFor"/>
+        <Class IRI="#Guideline"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isIndicatorFor"/>
+        <Class IRI="#Metric"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#produces"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#replyWith"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#specifiedBy"/>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#specifies"/>
+        <Class IRI="#Specification"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#supports"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#verifies"/>
+        <Class IRI="#Guideline"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#affects"/>
+        <Class IRI="#SoftwareArchitecturalStyleElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#affects"/>
+        <Class IRI="#SourceCodeElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#consumes"/>
+        <Class IRI="#Representation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#defines"/>
+        <Class IRI="#SourceCodeElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#describes"/>
+        <Class IRI="#SoftwareArchitecturalStyleElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBeenImplementedBy"/>
+        <Class IRI="#ReferenceImplementation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
+        <Class IRI="#ProgrammingLanguage"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasNegativeEffectOn"/>
+        <Class IRI="#SoftwareQualityRequirement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPositiveEffectOn"/>
+        <Class IRI="#SoftwareQualityRequirement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#implements"/>
+        <Class IRI="#Specification"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isGuidelineFor"/>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isIndicatorFor"/>
+        <Class IRI="#Guideline"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isIndicatorFor"/>
+        <Class IRI="#SoftwareQualityRequirement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#produces"/>
+        <Class IRI="#Representation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#replyWith"/>
+        <Class IRI="#ResponseStatusCode"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#specifiedBy"/>
+        <Class IRI="#Specification"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#specifies"/>
+        <Class IRI="#SoftwareArchitecturalStyle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#supports"/>
+        <Class IRI="#StandardMethod"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#verifies"/>
+        <Class IRI="#SoftwareArchitecturalStyleElement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#verifies"/>
+        <Class IRI="#SourceCodeElement"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Name"/>
+        <Class IRI="#Resource"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#URI"/>
+        <Class IRI="#Resource"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#URI"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
