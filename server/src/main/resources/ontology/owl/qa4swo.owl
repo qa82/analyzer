@@ -1,550 +1,607 @@
 <?xml version="1.0"?>
 
 
-<!DOCTYPE Ontology [
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY qa4swo "http://www.qa82.com/ontologies/qa4swo.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/pabu/ontologies/2014/10/qa4swo"
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://www.semanticweb.org/pabu/ontologies/2014/10/qa4swo">
-    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Declaration>
-        <Class IRI="#Annotation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Guideline"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#HTTPMethod"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#MIMEType"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Metric"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ProgrammingLanguage"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RESTElement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ReferenceImplementation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Representation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Resource"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ResponseStatusCode"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SoftwareArchitecturalStyleElement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SoftwareQualityRequirement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SourceCodeElement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Specification"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#StandardMethod"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#affects"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#consumes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#defines"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#describes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasBeenImplementedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasNegativeEffectOn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasPositiveEffectOn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#implements"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isGuidelineFor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isIndicatorFor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#produces"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#replyWith"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#specifiedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#specifies"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#supports"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#verifies"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#Name"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#URI"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#200"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#404"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#405"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#500"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#@GET"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#@POST"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#@Path"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#CONNECT"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Compatibility"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#DELETE"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Efficiency"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#FunctionalSuitability"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#GET"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#HEAD"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#JAX-RS"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Java"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Jersey"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Maintainability"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#OPTIONS"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#PATCH"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#POST"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#PUT"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Portability"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#REST"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Reliability"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Security"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#TRACE"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Usability"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#Annotation"/>
-        <Class IRI="#SourceCodeElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#HTTPMethod"/>
-        <Class IRI="#StandardMethod"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#MIMEType"/>
-        <Class IRI="#Representation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#RESTElement"/>
-        <Class IRI="#SoftwareArchitecturalStyleElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Representation"/>
-        <Class IRI="#RESTElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Resource"/>
-        <Class IRI="#RESTElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ResponseStatusCode"/>
-        <Class IRI="#RESTElement"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#StandardMethod"/>
-        <Class IRI="#RESTElement"/>
-    </SubClassOf>
-    <ClassAssertion>
-        <Class IRI="#ResponseStatusCode"/>
-        <NamedIndividual IRI="#200"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ResponseStatusCode"/>
-        <NamedIndividual IRI="#404"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ResponseStatusCode"/>
-        <NamedIndividual IRI="#405"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ResponseStatusCode"/>
-        <NamedIndividual IRI="#500"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Annotation"/>
-        <NamedIndividual IRI="#@GET"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Annotation"/>
-        <NamedIndividual IRI="#@POST"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Annotation"/>
-        <NamedIndividual IRI="#@Path"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#CONNECT"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Compatibility"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#DELETE"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Efficiency"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#FunctionalSuitability"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#GET"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#HEAD"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Specification"/>
-        <NamedIndividual IRI="#JAX-RS"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ProgrammingLanguage"/>
-        <NamedIndividual IRI="#Java"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ReferenceImplementation"/>
-        <NamedIndividual IRI="#Jersey"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Maintainability"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#OPTIONS"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#PATCH"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#POST"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#PUT"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Portability"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-        <NamedIndividual IRI="#REST"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Reliability"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Security"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#HTTPMethod"/>
-        <NamedIndividual IRI="#TRACE"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#SoftwareQualityRequirement"/>
-        <NamedIndividual IRI="#Usability"/>
-    </ClassAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#specifies"/>
-        <NamedIndividual IRI="#JAX-RS"/>
-        <NamedIndividual IRI="#REST"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
-        <NamedIndividual IRI="#Jersey"/>
-        <NamedIndividual IRI="#Java"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#implements"/>
-        <NamedIndividual IRI="#Jersey"/>
-        <NamedIndividual IRI="#JAX-RS"/>
-    </ObjectPropertyAssertion>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#hasBeenImplementedBy"/>
-        <ObjectProperty IRI="#implements"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#specifiedBy"/>
-        <ObjectProperty IRI="#specifies"/>
-    </InverseObjectProperties>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#affects"/>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#consumes"/>
-        <Class IRI="#Resource"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#defines"/>
-        <Class IRI="#ReferenceImplementation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#describes"/>
-        <Class IRI="#SourceCodeElement"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasBeenImplementedBy"/>
-        <Class IRI="#Specification"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
-        <Class IRI="#ReferenceImplementation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasNegativeEffectOn"/>
-        <Class IRI="#Guideline"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasPositiveEffectOn"/>
-        <Class IRI="#Guideline"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#implements"/>
-        <Class IRI="#ReferenceImplementation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isGuidelineFor"/>
-        <Class IRI="#Guideline"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isIndicatorFor"/>
-        <Class IRI="#Metric"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#produces"/>
-        <Class IRI="#Resource"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#replyWith"/>
-        <Class IRI="#Resource"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#specifiedBy"/>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#specifies"/>
-        <Class IRI="#Specification"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#supports"/>
-        <Class IRI="#Resource"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#verifies"/>
-        <Class IRI="#Guideline"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#affects"/>
-        <Class IRI="#SoftwareArchitecturalStyleElement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#affects"/>
-        <Class IRI="#SourceCodeElement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#consumes"/>
-        <Class IRI="#Representation"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#defines"/>
-        <Class IRI="#SourceCodeElement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#describes"/>
-        <Class IRI="#SoftwareArchitecturalStyleElement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasBeenImplementedBy"/>
-        <Class IRI="#ReferenceImplementation"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasBeenProgrammedWith"/>
-        <Class IRI="#ProgrammingLanguage"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasNegativeEffectOn"/>
-        <Class IRI="#SoftwareQualityRequirement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasPositiveEffectOn"/>
-        <Class IRI="#SoftwareQualityRequirement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#implements"/>
-        <Class IRI="#Specification"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isGuidelineFor"/>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isIndicatorFor"/>
-        <Class IRI="#Guideline"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isIndicatorFor"/>
-        <Class IRI="#SoftwareQualityRequirement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#produces"/>
-        <Class IRI="#Representation"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#replyWith"/>
-        <Class IRI="#ResponseStatusCode"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#specifiedBy"/>
-        <Class IRI="#Specification"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#specifies"/>
-        <Class IRI="#SoftwareArchitecturalStyle"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#supports"/>
-        <Class IRI="#StandardMethod"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#verifies"/>
-        <Class IRI="#SoftwareArchitecturalStyleElement"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#verifies"/>
-        <Class IRI="#SourceCodeElement"/>
-    </ObjectPropertyRange>
-    <DataPropertyDomain>
-        <DataProperty IRI="#Name"/>
-        <Class IRI="#Resource"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#URI"/>
-        <Class IRI="#Resource"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#Name"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#URI"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-</Ontology>
+     xmlns:qa4swo="http://www.qa82.com/ontologies/qa4swo.owl#">
+    <Ontology rdf:about="http://www.qa82.com/ontologies/qa4swo.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#affects -->
+
+    <ObjectProperty rdf:about="&qa4swo;affects">
+        <rdfs:domain rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#consumes -->
+
+    <ObjectProperty rdf:about="&qa4swo;consumes">
+        <rdfs:range rdf:resource="&qa4swo;Representation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#defines -->
+
+    <ObjectProperty rdf:about="&qa4swo;defines">
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#describes -->
+
+    <ObjectProperty rdf:about="&qa4swo;describes">
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:domain rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasBeenImplementedBy -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasBeenImplementedBy">
+        <rdfs:range rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Specification"/>
+        <inverseOf rdf:resource="&qa4swo;implements"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasBeenProgrammedWith -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasBeenProgrammedWith">
+        <rdfs:range rdf:resource="&qa4swo;ProgrammingLanguage"/>
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasNegativeEffectOn -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasNegativeEffectOn">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasPositiveEffectOn -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasPositiveEffectOn">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#implements -->
+
+    <ObjectProperty rdf:about="&qa4swo;implements">
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:range rdf:resource="&qa4swo;Specification"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#isGuidelineFor -->
+
+    <ObjectProperty rdf:about="&qa4swo;isGuidelineFor">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#isIndicatorFor -->
+
+    <ObjectProperty rdf:about="&qa4swo;isIndicatorFor">
+        <rdfs:range rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:domain rdf:resource="&qa4swo;Metric"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#produces -->
+
+    <ObjectProperty rdf:about="&qa4swo;produces">
+        <rdfs:range rdf:resource="&qa4swo;Representation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#replyWith -->
+
+    <ObjectProperty rdf:about="&qa4swo;replyWith">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#specifiedBy -->
+
+    <ObjectProperty rdf:about="&qa4swo;specifiedBy">
+        <rdfs:domain rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:range rdf:resource="&qa4swo;Specification"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#specifies -->
+
+    <ObjectProperty rdf:about="&qa4swo;specifies">
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:domain rdf:resource="&qa4swo;Specification"/>
+        <inverseOf rdf:resource="&qa4swo;specifiedBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#supports -->
+
+    <ObjectProperty rdf:about="&qa4swo;supports">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&qa4swo;StandardMethod"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#verifies -->
+
+    <ObjectProperty rdf:about="&qa4swo;verifies">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Name -->
+
+    <DatatypeProperty rdf:about="&qa4swo;Name">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#URI -->
+
+    <DatatypeProperty rdf:about="&qa4swo;URI">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Annotation -->
+
+    <Class rdf:about="&qa4swo;Annotation">
+        <rdfs:subClassOf rdf:resource="&qa4swo;SourceCodeElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Guideline -->
+
+    <Class rdf:about="&qa4swo;Guideline"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#HTTPMethod -->
+
+    <Class rdf:about="&qa4swo;HTTPMethod">
+        <rdfs:subClassOf rdf:resource="&qa4swo;StandardMethod"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#MIMEType -->
+
+    <Class rdf:about="&qa4swo;MIMEType">
+        <rdfs:subClassOf rdf:resource="&qa4swo;Representation"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Metric -->
+
+    <Class rdf:about="&qa4swo;Metric"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ProgrammingLanguage -->
+
+    <Class rdf:about="&qa4swo;ProgrammingLanguage"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#RESTElement -->
+
+    <Class rdf:about="&qa4swo;RESTElement">
+        <rdfs:subClassOf rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ReferenceImplementation -->
+
+    <Class rdf:about="&qa4swo;ReferenceImplementation"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Representation -->
+
+    <Class rdf:about="&qa4swo;Representation">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Resource -->
+
+    <Class rdf:about="&qa4swo;Resource">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ResponseStatusCode -->
+
+    <Class rdf:about="&qa4swo;ResponseStatusCode">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareArchitecturalStyle -->
+
+    <Class rdf:about="&qa4swo;SoftwareArchitecturalStyle"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareArchitecturalStyleElement -->
+
+    <Class rdf:about="&qa4swo;SoftwareArchitecturalStyleElement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareQualityRequirement -->
+
+    <Class rdf:about="&qa4swo;SoftwareQualityRequirement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SourceCodeElement -->
+
+    <Class rdf:about="&qa4swo;SourceCodeElement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Specification -->
+
+    <Class rdf:about="&qa4swo;Specification"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#StandardMethod -->
+
+    <Class rdf:about="&qa4swo;StandardMethod">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#200 -->
+
+    <NamedIndividual rdf:about="&qa4swo;200">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#404 -->
+
+    <NamedIndividual rdf:about="&qa4swo;404">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#405 -->
+
+    <NamedIndividual rdf:about="&qa4swo;405">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#500 -->
+
+    <NamedIndividual rdf:about="&qa4swo;500">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@GET -->
+
+    <NamedIndividual rdf:about="&qa4swo;@GET">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@POST -->
+
+    <NamedIndividual rdf:about="&qa4swo;@POST">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@Path -->
+
+    <NamedIndividual rdf:about="&qa4swo;@Path">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#CONNECT -->
+
+    <NamedIndividual rdf:about="&qa4swo;CONNECT">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Compatibility -->
+
+    <NamedIndividual rdf:about="&qa4swo;Compatibility">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#DELETE -->
+
+    <NamedIndividual rdf:about="&qa4swo;DELETE">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Efficiency -->
+
+    <NamedIndividual rdf:about="&qa4swo;Efficiency">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#FunctionalSuitability -->
+
+    <NamedIndividual rdf:about="&qa4swo;FunctionalSuitability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#GET -->
+
+    <NamedIndividual rdf:about="&qa4swo;GET">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#HEAD -->
+
+    <NamedIndividual rdf:about="&qa4swo;HEAD">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Java -->
+
+    <NamedIndividual rdf:about="&qa4swo;Java">
+        <rdf:type rdf:resource="&qa4swo;ProgrammingLanguage"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Jersey -->
+
+    <NamedIndividual rdf:about="&qa4swo;Jersey">
+        <rdf:type rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <qa4swo:hasBeenProgrammedWith rdf:resource="&qa4swo;Java"/>
+        <qa4swo:implements rdf:resource="&qa4swo;jaxrs"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Maintainability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Maintainability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#OPTIONS -->
+
+    <NamedIndividual rdf:about="&qa4swo;OPTIONS">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#PATCH -->
+
+    <NamedIndividual rdf:about="&qa4swo;PATCH">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#POST -->
+
+    <NamedIndividual rdf:about="&qa4swo;POST">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#PUT -->
+
+    <NamedIndividual rdf:about="&qa4swo;PUT">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Portability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Portability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#REST -->
+
+    <NamedIndividual rdf:about="&qa4swo;REST">
+        <rdf:type rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Reliability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Reliability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Security -->
+
+    <NamedIndividual rdf:about="&qa4swo;Security">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#TRACE -->
+
+    <NamedIndividual rdf:about="&qa4swo;TRACE">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Usability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Usability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#guideline_usageofnouns -->
+
+    <NamedIndividual rdf:about="&qa4swo;guideline_usageofnouns">
+        <rdf:type rdf:resource="&qa4swo;Guideline"/>
+        <qa4swo:isGuidelineFor rdf:resource="&qa4swo;REST"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#jaxrs -->
+
+    <NamedIndividual rdf:about="&qa4swo;jaxrs">
+        <rdf:type rdf:resource="&qa4swo;Specification"/>
+        <qa4swo:specifies rdf:resource="&qa4swo;REST"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#usageofnoun -->
+
+    <NamedIndividual rdf:about="&qa4swo;usageofnoun">
+        <rdf:type rdf:resource="&qa4swo;Metric"/>
+        <qa4swo:isIndicatorFor rdf:resource="&qa4swo;guideline_usageofnouns"/>
+    </NamedIndividual>
+</rdf:RDF>
 
 
 

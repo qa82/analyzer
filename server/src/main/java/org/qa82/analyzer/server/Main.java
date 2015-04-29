@@ -59,14 +59,12 @@ public class Main {
         }
 
         final HttpServer server = startServer(port);
-        initLog4j();
+
         logger.info(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", uri));
         System.in.read();
         server.shutdownNow();
     }
 
-	private static void initLog4j() {
-		PropertyConfigurator.configure("log4j.properties");
-	}
+	
 }
