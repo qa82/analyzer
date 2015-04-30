@@ -80,7 +80,7 @@ public class RestMetric_UsageOfNounProvider extends AbstractInformationProvider 
 
 	private List<Information> getResourceNames() {
 		List<Information> names = new ArrayList<Information>();
-		InformationType expectedInformationTypeForResourceNames = new InformationType(StringInformation.class, "http://cos.ontoware.org/cos#web-service#name", "JaxRs.ServiceName");
+		InformationType expectedInformationTypeForResourceNames = new InformationType(StringInformation.class, "http://cos.ontoware.org/cos#web-service#name", "Webservice.Name");
 
 		try {
 			AnalyzerResult result = analyzer.resolve(expectedInformationTypeForResourceNames, new ParameterList(null));

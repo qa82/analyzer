@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY qa4swo "http://www.qa82.com/ontologies/qa4swo.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:qa4swo="http://www.qa82.com/ontologies/qa4swo.owl#">
+    <Ontology rdf:about="http://www.qa82.com/ontologies/qa4swo.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#affects -->
+
+    <ObjectProperty rdf:about="&qa4swo;affects">
+        <rdfs:domain rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#consumes -->
+
+    <ObjectProperty rdf:about="&qa4swo;consumes">
+        <rdfs:range rdf:resource="&qa4swo;Representation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#defines -->
+
+    <ObjectProperty rdf:about="&qa4swo;defines">
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#describes -->
+
+    <ObjectProperty rdf:about="&qa4swo;describes">
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:domain rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasBeenImplementedBy -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasBeenImplementedBy">
+        <rdfs:range rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Specification"/>
+        <inverseOf rdf:resource="&qa4swo;implements"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasBeenProgrammedWith -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasBeenProgrammedWith">
+        <rdfs:range rdf:resource="&qa4swo;ProgrammingLanguage"/>
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasNegativeEffectOn -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasNegativeEffectOn">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#hasPositiveEffectOn -->
+
+    <ObjectProperty rdf:about="&qa4swo;hasPositiveEffectOn">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#implements -->
+
+    <ObjectProperty rdf:about="&qa4swo;implements">
+        <rdfs:domain rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <rdfs:range rdf:resource="&qa4swo;Specification"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#isGuidelineFor -->
+
+    <ObjectProperty rdf:about="&qa4swo;isGuidelineFor">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#isIndicatorFor -->
+
+    <ObjectProperty rdf:about="&qa4swo;isIndicatorFor">
+        <rdfs:range rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:domain rdf:resource="&qa4swo;Metric"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#produces -->
+
+    <ObjectProperty rdf:about="&qa4swo;produces">
+        <rdfs:range rdf:resource="&qa4swo;Representation"/>
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#replyWith -->
+
+    <ObjectProperty rdf:about="&qa4swo;replyWith">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#specifiedBy -->
+
+    <ObjectProperty rdf:about="&qa4swo;specifiedBy">
+        <rdfs:domain rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:range rdf:resource="&qa4swo;Specification"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#specifies -->
+
+    <ObjectProperty rdf:about="&qa4swo;specifies">
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+        <rdfs:domain rdf:resource="&qa4swo;Specification"/>
+        <inverseOf rdf:resource="&qa4swo;specifiedBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#supports -->
+
+    <ObjectProperty rdf:about="&qa4swo;supports">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&qa4swo;StandardMethod"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#verifies -->
+
+    <ObjectProperty rdf:about="&qa4swo;verifies">
+        <rdfs:domain rdf:resource="&qa4swo;Guideline"/>
+        <rdfs:range rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+        <rdfs:range rdf:resource="&qa4swo;SourceCodeElement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Name -->
+
+    <DatatypeProperty rdf:about="&qa4swo;Name">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#URI -->
+
+    <DatatypeProperty rdf:about="&qa4swo;URI">
+        <rdfs:domain rdf:resource="&qa4swo;Resource"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Annotation -->
+
+    <Class rdf:about="&qa4swo;Annotation">
+        <rdfs:subClassOf rdf:resource="&qa4swo;SourceCodeElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Guideline -->
+
+    <Class rdf:about="&qa4swo;Guideline"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#HTTPMethod -->
+
+    <Class rdf:about="&qa4swo;HTTPMethod">
+        <rdfs:subClassOf rdf:resource="&qa4swo;StandardMethod"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#MIMEType -->
+
+    <Class rdf:about="&qa4swo;MIMEType">
+        <rdfs:subClassOf rdf:resource="&qa4swo;Representation"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Metric -->
+
+    <Class rdf:about="&qa4swo;Metric"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ProgrammingLanguage -->
+
+    <Class rdf:about="&qa4swo;ProgrammingLanguage"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#RESTElement -->
+
+    <Class rdf:about="&qa4swo;RESTElement">
+        <rdfs:subClassOf rdf:resource="&qa4swo;SoftwareArchitecturalStyleElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ReferenceImplementation -->
+
+    <Class rdf:about="&qa4swo;ReferenceImplementation"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Representation -->
+
+    <Class rdf:about="&qa4swo;Representation">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Resource -->
+
+    <Class rdf:about="&qa4swo;Resource">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#ResponseStatusCode -->
+
+    <Class rdf:about="&qa4swo;ResponseStatusCode">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareArchitecturalStyle -->
+
+    <Class rdf:about="&qa4swo;SoftwareArchitecturalStyle"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareArchitecturalStyleElement -->
+
+    <Class rdf:about="&qa4swo;SoftwareArchitecturalStyleElement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SoftwareQualityRequirement -->
+
+    <Class rdf:about="&qa4swo;SoftwareQualityRequirement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#SourceCodeElement -->
+
+    <Class rdf:about="&qa4swo;SourceCodeElement"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Specification -->
+
+    <Class rdf:about="&qa4swo;Specification"/>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#StandardMethod -->
+
+    <Class rdf:about="&qa4swo;StandardMethod">
+        <rdfs:subClassOf rdf:resource="&qa4swo;RESTElement"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#200 -->
+
+    <NamedIndividual rdf:about="&qa4swo;200">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#404 -->
+
+    <NamedIndividual rdf:about="&qa4swo;404">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#405 -->
+
+    <NamedIndividual rdf:about="&qa4swo;405">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#500 -->
+
+    <NamedIndividual rdf:about="&qa4swo;500">
+        <rdf:type rdf:resource="&qa4swo;ResponseStatusCode"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@GET -->
+
+    <NamedIndividual rdf:about="&qa4swo;@GET">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@POST -->
+
+    <NamedIndividual rdf:about="&qa4swo;@POST">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#@Path -->
+
+    <NamedIndividual rdf:about="&qa4swo;@Path">
+        <rdf:type rdf:resource="&qa4swo;Annotation"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#CONNECT -->
+
+    <NamedIndividual rdf:about="&qa4swo;CONNECT">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Compatibility -->
+
+    <NamedIndividual rdf:about="&qa4swo;Compatibility">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#DELETE -->
+
+    <NamedIndividual rdf:about="&qa4swo;DELETE">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Efficiency -->
+
+    <NamedIndividual rdf:about="&qa4swo;Efficiency">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#FunctionalSuitability -->
+
+    <NamedIndividual rdf:about="&qa4swo;FunctionalSuitability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#GET -->
+
+    <NamedIndividual rdf:about="&qa4swo;GET">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#HEAD -->
+
+    <NamedIndividual rdf:about="&qa4swo;HEAD">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Java -->
+
+    <NamedIndividual rdf:about="&qa4swo;Java">
+        <rdf:type rdf:resource="&qa4swo;ProgrammingLanguage"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Jersey -->
+
+    <NamedIndividual rdf:about="&qa4swo;Jersey">
+        <rdf:type rdf:resource="&qa4swo;ReferenceImplementation"/>
+        <qa4swo:hasBeenProgrammedWith rdf:resource="&qa4swo;Java"/>
+        <qa4swo:implements rdf:resource="&qa4swo;jaxrs"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Maintainability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Maintainability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#OPTIONS -->
+
+    <NamedIndividual rdf:about="&qa4swo;OPTIONS">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#PATCH -->
+
+    <NamedIndividual rdf:about="&qa4swo;PATCH">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#POST -->
+
+    <NamedIndividual rdf:about="&qa4swo;POST">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#PUT -->
+
+    <NamedIndividual rdf:about="&qa4swo;PUT">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Portability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Portability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#REST -->
+
+    <NamedIndividual rdf:about="&qa4swo;REST">
+        <rdf:type rdf:resource="&qa4swo;SoftwareArchitecturalStyle"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Reliability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Reliability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Security -->
+
+    <NamedIndividual rdf:about="&qa4swo;Security">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#TRACE -->
+
+    <NamedIndividual rdf:about="&qa4swo;TRACE">
+        <rdf:type rdf:resource="&qa4swo;HTTPMethod"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#Usability -->
+
+    <NamedIndividual rdf:about="&qa4swo;Usability">
+        <rdf:type rdf:resource="&qa4swo;SoftwareQualityRequirement"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#guideline_usageofnouns -->
+
+    <NamedIndividual rdf:about="&qa4swo;guideline_usageofnouns">
+        <rdf:type rdf:resource="&qa4swo;Guideline"/>
+        <qa4swo:isGuidelineFor rdf:resource="&qa4swo;REST"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#jaxrs -->
+
+    <NamedIndividual rdf:about="&qa4swo;jaxrs">
+        <rdf:type rdf:resource="&qa4swo;Specification"/>
+        <qa4swo:specifies rdf:resource="&qa4swo;REST"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.qa82.com/ontologies/qa4swo.owl#usageofnoun -->
+
+    <NamedIndividual rdf:about="&qa4swo;usageofnoun">
+        <rdf:type rdf:resource="&qa4swo;Metric"/>
+        <qa4swo:isIndicatorFor rdf:resource="&qa4swo;guideline_usageofnouns"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

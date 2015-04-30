@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.net.URI;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -59,14 +58,12 @@ public class Main {
         }
 
         final HttpServer server = startServer(port);
-        initLog4j();
+
         logger.info(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", uri));
         System.in.read();
         server.shutdownNow();
     }
 
-	private static void initLog4j() {
-		PropertyConfigurator.configure("log4j.properties");
-	}
+	
 }
