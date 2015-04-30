@@ -104,11 +104,13 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
      * @param line The line, which should be checked for a class name
      */
     private void extractClassName(String line) {
-        Pattern classNamePattern = Pattern.compile("class ([a-zA-Z0-9_-]*)");
-        Matcher matcherForClassNamePattern = classNamePattern.matcher(line);
-        if (matcherForClassNamePattern.find()) {
-            this.setClassName(matcherForClassNamePattern.group(1));
-        }
+        if(className == null) {
+        	Pattern classNamePattern = Pattern.compile("class ([a-zA-Z0-9_-]*)");
+            Matcher matcherForClassNamePattern = classNamePattern.matcher(line);
+            if (matcherForClassNamePattern.find()) {
+                this.setClassName(matcherForClassNamePattern.group(1));
+            }
+        }    	
     }
 
     /**
@@ -117,11 +119,13 @@ public class JaxRs_Parser implements JaxRs_Compatibility {
      * @param line The line, which should be checked
      */
     void checkForResourceClass(String line) {
-        Pattern pathAnnotationPattern = Pattern.compile("@Path\\(\"([a-zA-Z0-9_-]*)\"\\)");
-        Matcher matcherForPathAnnotationPattern = pathAnnotationPattern.matcher(line);
-        if (matcherForPathAnnotationPattern.find()) {
-            this.setResourceName(matcherForPathAnnotationPattern.group(1));
-        }
+    	if(! (this.isThisAResourceClass())) {
+	        Pattern pathAnnotationPattern = Pattern.compile("@Path\\(\"([a-zA-Z0-9_-]*)\"\\)");
+	        Matcher matcherForPathAnnotationPattern = pathAnnotationPattern.matcher(line);
+	        if (matcherForPathAnnotationPattern.find()) {
+	            this.setResourceName(matcherForPathAnnotationPattern.group(1));
+	        }
+    	}
     }
 
     /**

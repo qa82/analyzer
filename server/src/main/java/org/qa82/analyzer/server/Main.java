@@ -15,6 +15,7 @@ package org.qa82.analyzer.server;
 import java.io.IOException;
 import java.net.URI;
 
+import org.apache.log4j.Logger;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -26,6 +27,9 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class Main {
 
     private static String uri = null;
+    
+    static Logger logger = Logger.getLogger(Main.class.getName());
+    
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
@@ -54,9 +58,12 @@ public class Main {
         }
 
         final HttpServer server = startServer(port);
-        System.out.println(String.format("Jersey app started with WADL available at "
+
+        logger.info(String.format("Jersey app started with WADL available at "
                 + "%sapplication.wadl\nHit enter to stop it...", uri));
         System.in.read();
         server.shutdownNow();
     }
+
+	
 }
