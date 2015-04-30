@@ -40,14 +40,14 @@ public class JaxRs_ServiceNameProvider extends AbstractInformationProvider {
 
 	@Override
 	public InformationNeedDescription getProvidedInformation() {
-		return new InformationNeedDescription(new InformationType(StringInformation.class, "http://cos.ontoware.org/cos#web-service#name", this.getDescription()),
+		return new InformationNeedDescription(new InformationType(StringInformation.class, "http://qa82.com/ontologies/qa4swo.owl#resource#name#jaxrs", this.getDescription()),
 				new ArrayList<>());
 	}
 
 	@Override
 	public List<Information> resolve(InformationType expectedInformation, ParameterList parameters) {
 		ArrayList<Information> informationList = new ArrayList<>();
-
+		
 		Set<Repository> repositories = this.analyzer.getProject().getRepositories();
 		for (Repository r : repositories) {
 			for (File javaFile : r.searchFileEndingWith("java")) {

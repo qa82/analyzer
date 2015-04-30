@@ -22,6 +22,7 @@ import org.qa82.analyzer.core.providers.common.String_IsNounProvider;
 import org.qa82.analyzer.core.providers.java.JaxRs_ServiceMethodProvider;
 import org.qa82.analyzer.core.providers.java.JaxRs_ServiceNameProvider;
 import org.qa82.analyzer.core.providers.java.JaxRs_ServiceProvider;
+import org.qa82.analyzer.core.providers.java.WebserviceNameProvider;
 import org.qa82.analyzer.core.providers.java.rest.RestMetric_UsageOfNounProvider;
 
 public class InformationProviderRepositoryImpl implements InformationProviderRepository {
@@ -40,6 +41,7 @@ public class InformationProviderRepositoryImpl implements InformationProviderRep
 		informationProviders.add(new JaxRs_ServiceMethodProvider(analyzer));
 		informationProviders.add(new RestMetric_UsageOfNounProvider(analyzer));
 		informationProviders.add(new String_IsNounProvider(analyzer));
+		informationProviders.add(new WebserviceNameProvider(analyzer));
 	}
 	
 	/* (non-Javadoc)
